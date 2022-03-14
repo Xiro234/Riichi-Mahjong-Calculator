@@ -1,5 +1,6 @@
 package com.example.mahjongcalculator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mahjongcalculator.databinding.ActivityMainBinding
@@ -15,7 +16,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btnNewHand.setOnClickListener {
-
+            Intent(this, HandCalculator::class.java).also {
+                startActivity(it)
+            }
         }
     }
 }
