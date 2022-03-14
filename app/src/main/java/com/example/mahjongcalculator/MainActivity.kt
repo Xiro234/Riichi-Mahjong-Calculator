@@ -2,18 +2,20 @@ package com.example.mahjongcalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
+import com.example.mahjongcalculator.databinding.ActivityMainBinding
+
+private lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        val newHand = findViewById<Button>(R.id.new_hand_button)
+        binding.btnNewHand.setOnClickListener {
 
-        newHand.setOnClickListener {
-            Toast.makeText(this, "Click!", Toast.LENGTH_SHORT).show()
         }
     }
 }
