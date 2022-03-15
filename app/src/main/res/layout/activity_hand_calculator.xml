@@ -4,176 +4,189 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HandCalculator">
+    tools:context=".HandCalculatorActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".HandCalculator"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="279dp">
+    <ImageView
+        android:id="@+id/ivHand1"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:srcCompat="@drawable/blank" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.050615594" />
+    <ImageView
+        android:id="@+id/ivHand2"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand1"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView44"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline3"
-            app:srcCompat="@drawable/front" />
+    <ImageView
+        android:id="@+id/ivHand8"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView44"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView45"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/guideline3"
-            app:srcCompat="@drawable/front" />
+    <ImageView
+        android:id="@+id/ivHand13"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand12"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView50"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView57"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline4"
-            app:srcCompat="@drawable/front" />
+    <ImageView
+        android:id="@+id/ivHand12"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand13"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand11"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView51"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView52"
-            app:layout_constraintTop_toTopOf="@+id/guideline4"
-            app:srcCompat="@drawable/front" />
+    <ImageView
+        android:id="@+id/ivHand11"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand10"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView52"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView51"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView54"
-            app:layout_constraintTop_toTopOf="@+id/guideline4"
-            app:srcCompat="@drawable/front" />
+    <ImageView
+        android:id="@+id/ivHand10"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand11"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand9"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView54"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView52"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView55"
-            app:layout_constraintTop_toTopOf="@+id/guideline4"
-            app:srcCompat="@drawable/front" />
+    <ImageView
+        android:id="@+id/ivHand9"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand10"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand8"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView55"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView54"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView57"
-            app:layout_constraintTop_toTopOf="@+id/guideline4"
-            app:srcCompat="@drawable/front" />
+    <ImageView
+        android:id="@+id/ivHand3"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand2"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView57"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView55"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView50"
-            app:layout_constraintTop_toTopOf="@+id/guideline4"
-            app:srcCompat="@drawable/front" />
+    <ImageView
+        android:id="@+id/ivHand4"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand3"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView45"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView46"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView44"
-            app:layout_constraintTop_toTopOf="@+id/guideline3"
-            app:srcCompat="@drawable/front" />
+    <ImageView
+        android:id="@+id/ivHand5"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand4"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView46"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView47"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView45"
-            app:layout_constraintTop_toTopOf="@+id/guideline3"
-            app:srcCompat="@drawable/front" />
+    <ImageView
+        android:id="@+id/ivHand6"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand5"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView47"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView48"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView46"
-            app:layout_constraintTop_toTopOf="@+id/guideline3"
-            app:srcCompat="@drawable/front" />
+    <ImageView
+        android:id="@+id/ivHand7"
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand6"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:srcCompat="@drawable/blank" />
 
-        <ImageView
-            android:id="@+id/imageView48"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView43"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView47"
-            app:layout_constraintTop_toTopOf="@+id/guideline3"
-            app:srcCompat="@drawable/front" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="113dp" />
 
-        <ImageView
-            android:id="@+id/imageView43"
-            android:layout_width="45dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageView48"
-            app:layout_constraintTop_toTopOf="@+id/guideline3"
-            app:srcCompat="@drawable/front" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="113dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.050615594" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnChangeImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IMAGE"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="505dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

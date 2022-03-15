@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btnNewHand.setOnClickListener {
-            Intent(this, HandCalculator::class.java).also {
+            Intent(this, HandCalculatorActivity::class.java).also {
                 startActivity(it)
             }
         }

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MahjongCalculator">
         <activity
-            android:name=".HandCalculator"
+            android:name=".HandCalculatorActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
