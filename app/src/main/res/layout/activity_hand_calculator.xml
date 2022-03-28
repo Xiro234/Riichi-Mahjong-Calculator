@@ -4,624 +4,570 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".HandCalculatorActivity"
-    tools:layout_editor_absoluteX="53dp"
+    tools:layout_editor_absoluteX="37dp"
     tools:layout_editor_absoluteY="0dp">
 
     <ImageView
-        android:id="@+id/ivTiles27"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles8"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles1"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles2"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles1"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles2"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles3"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles4"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles3"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles5"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles6"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles4"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles6"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles7"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles5"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles7"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles6"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles8"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles27"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles7"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles23"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles26"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles9"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles26"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles25"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles23"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles11"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles25"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles24"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles26"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles10"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles30"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivTiles23"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles23"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles31"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivTiles25"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles25"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles37"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivTiles21"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles21"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles36"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivTiles22"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles22"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles35"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivTiles20"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles20"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles34"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivTiles24"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles24"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles32"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivTiles26"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles26"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles24"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles20"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles25"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles12"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles18"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles29"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles17"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles19"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles29"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles21"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles16"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles21"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles19"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles22"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles15"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles29"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles18"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles19"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles28"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles20"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles22"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles24"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles13"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles22"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles21"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles20"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles14"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles9"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles11"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles1"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles17"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles28"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles27"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles16"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles28"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles15"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles7"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles15"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles16"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles14"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles6"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles14"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles15"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles13"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles5"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles13"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles14"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles12"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles12"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles13"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles10"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles3"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles10"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles12"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles11"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles11"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles10"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles9"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles2"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivTiles28"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivTiles17"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles16"
-        app:layout_constraintTop_toBottomOf="@+id/ivTiles8"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
         android:id="@+id/ivHand1"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/front"
         app:layout_constraintEnd_toStartOf="@+id/ivHand2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
+        app:srcCompat="@drawable/front" />
 
     <ImageView
         android:id="@+id/ivHand2"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/front"
         app:layout_constraintEnd_toStartOf="@+id/ivHand3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand1"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
+        app:srcCompat="@drawable/front" />
 
     <ImageView
         android:id="@+id/ivHand3"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand4"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand6"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand6"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand7"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand7"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand9"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand6"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand8"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand10"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand10"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand11"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand8"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand11"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand12"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand10"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand12"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand13"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand11"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand13"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand12"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand9"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand7"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand5"
-        android:layout_width="45dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/front"
         app:layout_constraintEnd_toStartOf="@+id/ivHand4"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/front" />
+
+    <ImageView
+        android:id="@+id/ivHand5"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/front" />
+
+    <ImageView
+        android:id="@+id/ivHand6"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/front" />
+
+    <ImageView
+        android:id="@+id/ivHand7"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/front" />
+
+    <ImageView
+        android:id="@+id/ivHand8"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/front" />
+
+    <ImageView
+        android:id="@+id/ivHand9"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/front" />
+
+    <ImageView
+        android:id="@+id/ivHand10"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivHand1"
+        app:layout_constraintTop_toBottomOf="@+id/ivHand1"
+        app:srcCompat="@drawable/front" />
+
+    <ImageView
+        android:id="@+id/ivHand11"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivHand3"
+        app:layout_constraintTop_toBottomOf="@+id/ivHand3"
+        app:srcCompat="@drawable/front" />
+
+    <ImageView
+        android:id="@+id/ivHand13"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivHand4"
+        app:layout_constraintTop_toBottomOf="@+id/ivHand4"
+        app:srcCompat="@drawable/front" />
+
+    <ImageView
+        android:id="@+id/ivHand12"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivHand2"
+        app:layout_constraintTop_toBottomOf="@+id/ivHand2"
+        app:srcCompat="@drawable/front" />
+
+    <ImageView
+        android:id="@+id/ivHand4"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand5"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand3"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/blank" />
+        app:srcCompat="@drawable/front" />
+
+    <ImageView
+        android:id="@+id/ivMan1"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivMan2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivMan2"
+        app:srcCompat="@drawable/man1" />
+
+    <ImageView
+        android:id="@+id/ivPin1"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPin2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivPin2"
+        app:srcCompat="@drawable/pin1" />
+
+    <ImageView
+        android:id="@+id/ivSou1"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivSou2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivSou2"
+        app:srcCompat="@drawable/sou1" />
+
+    <ImageView
+        android:id="@+id/viTon"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivSou1"
+        app:layout_constraintTop_toBottomOf="@+id/ivSou1"
+        app:srcCompat="@drawable/ton" />
+
+    <ImageView
+        android:id="@+id/ivChun"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivSou7"
+        app:layout_constraintTop_toTopOf="@+id/IvHatsu"
+        app:srcCompat="@drawable/chun" />
+
+    <ImageView
+        android:id="@+id/IvHatsu"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivSou6"
+        app:layout_constraintTop_toTopOf="@+id/ivHaku"
+        app:srcCompat="@drawable/hatsu" />
+
+    <ImageView
+        android:id="@+id/ivHaku"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivSou5"
+        app:layout_constraintTop_toTopOf="@+id/ivPei"
+        app:srcCompat="@drawable/haku" />
+
+    <ImageView
+        android:id="@+id/ivPei"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivSou4"
+        app:layout_constraintTop_toTopOf="@+id/ivShaa"
+        app:srcCompat="@drawable/pei" />
+
+    <ImageView
+        android:id="@+id/ivShaa"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivSou3"
+        app:layout_constraintTop_toTopOf="@+id/ivNan"
+        app:srcCompat="@drawable/shaa" />
+
+    <ImageView
+        android:id="@+id/ivNan"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivSou2"
+        app:layout_constraintTop_toTopOf="@+id/viTon"
+        app:srcCompat="@drawable/nan" />
+
+    <ImageView
+        android:id="@+id/ivSou6"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivSou7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSou5"
+        app:layout_constraintTop_toTopOf="@+id/ivSou7"
+        app:srcCompat="@drawable/sou6" />
+
+    <ImageView
+        android:id="@+id/ivSou5Dora"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSou9"
+        app:layout_constraintTop_toBottomOf="@+id/ivPin5Dora"
+        app:srcCompat="@drawable/sou5_dora" />
+
+    <ImageView
+        android:id="@+id/ivSou9"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivSou5Dora"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/uvSou8"
+        app:layout_constraintTop_toTopOf="@+id/ivSou5Dora"
+        app:srcCompat="@drawable/sou9" />
+
+    <ImageView
+        android:id="@+id/uvSou8"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivSou9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSou7"
+        app:layout_constraintTop_toTopOf="@+id/ivSou9"
+        app:srcCompat="@drawable/sou8" />
+
+    <ImageView
+        android:id="@+id/ivSou7"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/uvSou8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSou6"
+        app:layout_constraintTop_toTopOf="@+id/uvSou8"
+        app:srcCompat="@drawable/sou7" />
+
+    <ImageView
+        android:id="@+id/ivSou5"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivSou6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSou4"
+        app:layout_constraintTop_toTopOf="@+id/ivSou6"
+        app:srcCompat="@drawable/sou5" />
+
+    <ImageView
+        android:id="@+id/ivSou4"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivSou5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSou3"
+        app:layout_constraintTop_toTopOf="@+id/ivSou5"
+        app:srcCompat="@drawable/sou4" />
+
+    <ImageView
+        android:id="@+id/ivSou3"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivSou4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSou2"
+        app:layout_constraintTop_toTopOf="@+id/ivSou4"
+        app:srcCompat="@drawable/sou3" />
+
+    <ImageView
+        android:id="@+id/ivSou2"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivSou3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSou1"
+        app:layout_constraintTop_toTopOf="@+id/ivSou3"
+        app:srcCompat="@drawable/sou2" />
+
+    <ImageView
+        android:id="@+id/ivPin2"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPin3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPin1"
+        app:layout_constraintTop_toTopOf="@+id/ivPin3"
+        app:srcCompat="@drawable/pin2" />
+
+    <ImageView
+        android:id="@+id/ivPin6"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPin7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPin5"
+        app:layout_constraintTop_toTopOf="@+id/ivPin7"
+        app:srcCompat="@drawable/pin6" />
+
+    <ImageView
+        android:id="@+id/ivPin5Dora"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPin9"
+        app:layout_constraintTop_toBottomOf="@+id/ivMan5Dora"
+        app:srcCompat="@drawable/pin5_dora" />
+
+    <ImageView
+        android:id="@+id/ivPin9"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPin5Dora"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPin8"
+        app:layout_constraintTop_toTopOf="@+id/ivPin5Dora"
+        app:srcCompat="@drawable/pin9" />
+
+    <ImageView
+        android:id="@+id/ivPin8"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPin9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPin7"
+        app:layout_constraintTop_toTopOf="@+id/ivPin9"
+        app:srcCompat="@drawable/pin8" />
+
+    <ImageView
+        android:id="@+id/ivPin7"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPin8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPin6"
+        app:layout_constraintTop_toTopOf="@+id/ivPin8"
+        app:srcCompat="@drawable/pin7" />
+
+    <ImageView
+        android:id="@+id/ivPin5"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPin6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPin4"
+        app:layout_constraintTop_toTopOf="@+id/ivPin6"
+        app:srcCompat="@drawable/pin5" />
+
+    <ImageView
+        android:id="@+id/ivPin4"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPin5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPin3"
+        app:layout_constraintTop_toTopOf="@+id/ivPin5"
+        app:srcCompat="@drawable/pin4" />
+
+    <ImageView
+        android:id="@+id/ivPin3"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPin4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPin2"
+        app:layout_constraintTop_toTopOf="@+id/ivPin4"
+        app:srcCompat="@drawable/pin3" />
+
+    <ImageView
+        android:id="@+id/ivMan2"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivMan3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivMan1"
+        app:layout_constraintTop_toTopOf="@+id/ivMan3"
+        app:srcCompat="@drawable/man2" />
+
+    <ImageView
+        android:id="@+id/ivMan4"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivMan5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivMan3"
+        app:layout_constraintTop_toTopOf="@+id/ivMan5"
+        app:srcCompat="@drawable/man4" />
+
+    <ImageView
+        android:id="@+id/ivMan5"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivMan6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivMan4"
+        app:layout_constraintTop_toTopOf="@+id/ivMan6"
+        app:srcCompat="@drawable/man5" />
+
+    <ImageView
+        android:id="@+id/ivMan6"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivMan7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivMan5"
+        app:layout_constraintTop_toTopOf="@+id/ivMan7"
+        app:srcCompat="@drawable/man6" />
+
+    <ImageView
+        android:id="@+id/ivMan7"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivMan8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivMan6"
+        app:layout_constraintTop_toTopOf="@+id/ivMan8"
+        app:srcCompat="@drawable/man7" />
+
+    <ImageView
+        android:id="@+id/ivMan9"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivMan5Dora"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivMan8"
+        app:layout_constraintTop_toTopOf="@+id/ivMan5Dora"
+        app:srcCompat="@drawable/man9" />
+
+    <ImageView
+        android:id="@+id/ivMan5Dora"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivMan9"
+        app:layout_constraintTop_toTopOf="@+id/glTilesTop"
+        app:srcCompat="@drawable/man5_dora" />
+
+    <ImageView
+        android:id="@+id/ivMan8"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivMan9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivMan7"
+        app:layout_constraintTop_toTopOf="@+id/ivMan9"
+        app:srcCompat="@drawable/man8" />
+
+    <ImageView
+        android:id="@+id/ivMan3"
+        android:layout_width="33dp"
+        android:layout_height="44dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivMan4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivMan2"
+        app:layout_constraintTop_toTopOf="@+id/ivMan4"
+        app:srcCompat="@drawable/man3" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
+        android:id="@+id/glTilesTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="494dp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivTiles37"
-        app:layout_constraintStart_toStartOf="@+id/guideline7" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Confirm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3" />
-
+        app:layout_constraintGuide_percent="0.7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

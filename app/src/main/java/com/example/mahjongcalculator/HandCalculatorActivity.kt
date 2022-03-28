@@ -1,6 +1,5 @@
 package com.example.mahjongcalculator
 
-import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mahjongcalculator.databinding.ActivityHandCalculatorBinding
@@ -14,7 +13,5 @@ class HandCalculatorActivity : AppCompatActivity() {
         binding = ActivityHandCalculatorBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
     }
 }
