@@ -4,8 +4,12 @@ class Hand {
     var tiles = arrayOfNulls<Tile>(13)
     var numOfTiles: Int = 0
 
-    fun addTile(tile: Tile) {
-        tiles[numOfTiles] = tile
+    fun addTile(suit: Suit, value: Int) {
+        if(numOfTiles == 13) {
+            return
+        }
+
+        tiles[numOfTiles] = Tile(suit, value)
         numOfTiles++
     }
 

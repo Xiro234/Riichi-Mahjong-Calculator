@@ -20,7 +20,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand2"
@@ -33,7 +33,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand1"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand3"
@@ -46,7 +46,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand5"
@@ -59,7 +59,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand4"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand6"
@@ -72,7 +72,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand5"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand7"
@@ -85,7 +85,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand6"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand8"
@@ -98,7 +98,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand7"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand9"
@@ -112,7 +112,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand8"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand10"
@@ -122,7 +122,7 @@
         android:background="@drawable/front"
         app:layout_constraintStart_toStartOf="@+id/ivHand1"
         app:layout_constraintTop_toBottomOf="@+id/ivHand1"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand11"
@@ -132,7 +132,7 @@
         android:background="@drawable/front"
         app:layout_constraintStart_toStartOf="@+id/ivHand3"
         app:layout_constraintTop_toBottomOf="@+id/ivHand3"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand13"
@@ -142,7 +142,7 @@
         android:background="@drawable/front"
         app:layout_constraintStart_toStartOf="@+id/ivHand4"
         app:layout_constraintTop_toBottomOf="@+id/ivHand4"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand12"
@@ -152,7 +152,7 @@
         android:background="@drawable/front"
         app:layout_constraintStart_toStartOf="@+id/ivHand2"
         app:layout_constraintTop_toBottomOf="@+id/ivHand2"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivHand4"
@@ -165,7 +165,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand3"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/front" />
+        app:srcCompat="@drawable/blank" />
 
     <ImageView
         android:id="@+id/ivMan1"
@@ -569,5 +569,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/HandGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivHand1,ivHand2,ivHand3,ivHand4,ivHand5,ivHand6,ivHand7,ivHand8,ivHand9,ivHand10,ivHand11,ivHand12,ivHand13" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
