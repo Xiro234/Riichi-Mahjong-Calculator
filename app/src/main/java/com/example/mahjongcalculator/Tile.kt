@@ -19,10 +19,10 @@ class Tile(inputSuit: Suit, inputValue: Int) {
 
         if(suitString == "wind") {
             return when(value) {
-                1 -> R.drawable.ton
-                2 -> R.drawable.nan
-                3 -> R.drawable.shaa
-                4 -> R.drawable.pei
+                1 -> R.drawable.pei
+                2 -> R.drawable.ton
+                3 -> R.drawable.nan
+                4 -> R.drawable.shaa
                 else -> R.drawable.blank
             }
         }

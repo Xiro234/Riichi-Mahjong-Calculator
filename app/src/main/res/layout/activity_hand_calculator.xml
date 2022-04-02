@@ -125,7 +125,7 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/ivHand11"
+        android:id="@+id/ivHand12"
         android:layout_width="39dp"
         android:layout_height="52dp"
         android:layout_marginTop="4dp"
@@ -145,7 +145,7 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/ivHand12"
+        android:id="@+id/ivHand11"
         android:layout_width="39dp"
         android:layout_height="52dp"
         android:layout_marginTop="4dp"
@@ -201,7 +201,7 @@
         app:srcCompat="@drawable/sou1" />
 
     <ImageView
-        android:id="@+id/viTon"
+        android:id="@+id/ivTon"
         android:layout_width="33dp"
         android:layout_height="44dp"
         android:layout_marginTop="8dp"
@@ -216,11 +216,11 @@
         android:layout_height="44dp"
         android:background="@drawable/front"
         app:layout_constraintStart_toStartOf="@+id/ivSou7"
-        app:layout_constraintTop_toTopOf="@+id/IvHatsu"
+        app:layout_constraintTop_toTopOf="@+id/ivHatsu"
         app:srcCompat="@drawable/chun" />
 
     <ImageView
-        android:id="@+id/IvHatsu"
+        android:id="@+id/ivHatsu"
         android:layout_width="33dp"
         android:layout_height="44dp"
         android:background="@drawable/front"
@@ -261,7 +261,7 @@
         android:layout_height="44dp"
         android:background="@drawable/front"
         app:layout_constraintStart_toStartOf="@+id/ivSou2"
-        app:layout_constraintTop_toTopOf="@+id/viTon"
+        app:layout_constraintTop_toTopOf="@+id/ivTon"
         app:srcCompat="@drawable/nan" />
 
     <ImageView
@@ -294,12 +294,12 @@
         android:background="@drawable/front"
         app:layout_constraintEnd_toStartOf="@+id/ivSou5Dora"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/uvSou8"
+        app:layout_constraintStart_toEndOf="@+id/ivSou8"
         app:layout_constraintTop_toTopOf="@+id/ivSou5Dora"
         app:srcCompat="@drawable/sou9" />
 
     <ImageView
-        android:id="@+id/uvSou8"
+        android:id="@+id/ivSou8"
         android:layout_width="33dp"
         android:layout_height="44dp"
         android:background="@drawable/front"
@@ -314,10 +314,10 @@
         android:layout_width="33dp"
         android:layout_height="44dp"
         android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/uvSou8"
+        app:layout_constraintEnd_toStartOf="@+id/ivSou8"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivSou6"
-        app:layout_constraintTop_toTopOf="@+id/uvSou8"
+        app:layout_constraintTop_toTopOf="@+id/ivSou8"
         app:srcCompat="@drawable/sou7" />
 
     <ImageView

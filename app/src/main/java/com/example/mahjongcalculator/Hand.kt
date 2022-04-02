@@ -1,16 +1,20 @@
 package com.example.mahjongcalculator
 
+import android.util.Log
+
 class Hand {
     var tiles = arrayOfNulls<Tile>(13)
     var numOfTiles: Int = 0
 
-    fun addTile(suit: Suit, value: Int) {
-        if(numOfTiles == 13) {
-            return
+    fun addTile(suit: Suit, value: Int): Boolean {
+        if(numOfTiles >= 13) {
+            return false
         }
 
         tiles[numOfTiles] = Tile(suit, value)
         numOfTiles++
+        Log.d(null, numOfTiles.toString())
+        return true
     }
 
     fun deleteTile(index: Int) {
