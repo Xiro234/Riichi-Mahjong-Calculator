@@ -17,15 +17,24 @@ class Hand {
         return true
     }
 
-    fun deleteTile(index: Int) {
+    fun deleteTile(index: Int) : Boolean {
+        if(tiles[index] == null) {
+            return false
+        }
+
         tiles[index] = null
         for(i in index until numOfTiles) {
-            if(i == 13) {
+            if(i == 12) {
                 tiles[i] = null
             }
             else {
                 tiles[i] = tiles[i + 1]
             }
         }
+
+        tiles[numOfTiles - 1] = null
+        numOfTiles--
+
+        return true
     }
 }

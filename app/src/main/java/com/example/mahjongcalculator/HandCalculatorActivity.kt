@@ -67,16 +67,45 @@ class HandCalculatorActivity : AppCompatActivity() {
         binding.ivHatsu.setOnClickListener { newTile(Suit.Dragon, 2) }
         binding.ivChun.setOnClickListener { newTile(Suit.Dragon, 3) }
         //endregion
+
+        //region HAND BUTTONS
+        binding.ivHand1.setOnClickListener { deleteTile(0) }
+        binding.ivHand2.setOnClickListener { deleteTile(1) }
+        binding.ivHand3.setOnClickListener { deleteTile(2) }
+        binding.ivHand4.setOnClickListener { deleteTile(3) }
+        binding.ivHand5.setOnClickListener { deleteTile(4) }
+        binding.ivHand6.setOnClickListener { deleteTile(5) }
+        binding.ivHand7.setOnClickListener { deleteTile(6) }
+        binding.ivHand8.setOnClickListener { deleteTile(7) }
+        binding.ivHand9.setOnClickListener { deleteTile(8) }
+        binding.ivHand10.setOnClickListener { deleteTile(9) }
+        binding.ivHand11.setOnClickListener { deleteTile(10) }
+        binding.ivHand12.setOnClickListener { deleteTile(11) }
+        binding.ivHand13.setOnClickListener { deleteTile(12) }
+        //endregion
     }
 
     private fun newTile(suit: Suit, value: Int) {
         if(hand.addTile(suit, value)) {
-            for (i in 0 until hand.numOfTiles) {
-                hand.tiles[i]?.let {
-                    findViewById<ImageView>(binding.HandGroup.referencedIds[i]).setImageResource(
-                        it.toDrawable(baseContext)
-                    )
+            redrawHand()
+        }
+    }
+
+    private fun deleteTile(index: Int) {
+        if(hand.deleteTile(index)) {
+            redrawHand()
+        }
+    }
+
+    private fun redrawHand() {
+        for (i in 0 until 13) {
+            if(hand.tiles[i] != null) {
+                hand.tiles[i]?.toDrawable(baseContext)?.let {
+                    findViewById<ImageView>(binding.HandGroup.referencedIds[i]).setImageResource(it)
                 }
+            }
+            else {
+                findViewById<ImageView>(binding.HandGroup.referencedIds[i]).setImageResource(R.drawable.blank)
             }
         }
     }
