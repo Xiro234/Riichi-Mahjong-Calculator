@@ -2,6 +2,7 @@ package com.example.mahjongcalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import com.example.mahjongcalculator.databinding.ActivityHandCalculatorBinding
 
@@ -28,7 +29,7 @@ class HandCalculatorActivity : AppCompatActivity() {
         binding.ivMan7.setOnClickListener { newTile(Suit.Man, 7) }
         binding.ivMan8.setOnClickListener { newTile(Suit.Man, 8) }
         binding.ivMan9.setOnClickListener { newTile(Suit.Man, 9) }
-        binding.ivMan5Dora.setOnClickListener { newTile(Suit.Man, 10) }
+        binding.ivMan5Dora.setOnClickListener { newTile(Suit.Man, 5, true) }
         //endregion
 
         //region PIN BUTTONS
@@ -41,7 +42,7 @@ class HandCalculatorActivity : AppCompatActivity() {
         binding.ivPin7.setOnClickListener { newTile(Suit.Pin, 7) }
         binding.ivPin8.setOnClickListener { newTile(Suit.Pin, 8) }
         binding.ivPin9.setOnClickListener { newTile(Suit.Pin, 9) }
-        binding.ivPin5Dora.setOnClickListener { newTile(Suit.Pin, 10) }
+        binding.ivPin5Dora.setOnClickListener { newTile(Suit.Pin, 5, true) }
         //endregion
 
         //region SOU BUTTONS
@@ -54,7 +55,7 @@ class HandCalculatorActivity : AppCompatActivity() {
         binding.ivSou7.setOnClickListener { newTile(Suit.Sou, 7) }
         binding.ivSou8.setOnClickListener { newTile(Suit.Sou, 8) }
         binding.ivSou9.setOnClickListener { newTile(Suit.Sou, 9) }
-        binding.ivSou5Dora.setOnClickListener { newTile(Suit.Sou, 10) }
+        binding.ivSou5Dora.setOnClickListener { newTile(Suit.Sou, 5, true) }
         //endregion
 
         //region HONOR BUTTONS
@@ -82,11 +83,16 @@ class HandCalculatorActivity : AppCompatActivity() {
         binding.ivHand11.setOnClickListener { deleteTile(10) }
         binding.ivHand12.setOnClickListener { deleteTile(11) }
         binding.ivHand13.setOnClickListener { deleteTile(12) }
+        binding.ivHand14.setOnClickListener { deleteTile(13) }
         //endregion
+
+        binding.btnCalc.setOnClickListener {
+            Log.d(null, hand.checkIfValid().toString())
+        }
     }
 
-    private fun newTile(suit: Suit, value: Int) {
-        if(hand.addTile(suit, value)) {
+    private fun newTile(suit: Suit, value: Int, dora: Boolean = false) {
+        if(hand.addTile(suit, value, dora)) {
             redrawHand()
         }
     }
@@ -98,7 +104,7 @@ class HandCalculatorActivity : AppCompatActivity() {
     }
 
     private fun redrawHand() {
-        for (i in 0 until 13) {
+        for (i in 0 until hand.tiles.size) {
             if(hand.tiles[i] != null) {
                 hand.tiles[i]?.toDrawable(baseContext)?.let {
                     findViewById<ImageView>(binding.HandGroup.referencedIds[i]).setImageResource(it)

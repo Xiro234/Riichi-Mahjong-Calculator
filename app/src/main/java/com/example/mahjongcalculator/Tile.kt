@@ -10,9 +10,14 @@ enum class Suit {
     Dragon //1: White, 2: Green, 3: Red
 }
 
-class Tile(inputSuit: Suit, inputValue: Int) {
-    var suit = inputSuit
-    var value = inputValue //Value of 10 equals red 5
+class Tile(inputSuit: Suit, inputValue: Int, isDora: Boolean = false) {
+    var suit: Suit = inputSuit
+    var value: Int = inputValue
+    var winning: Boolean = false
+    var visited: Boolean = false
+    var dora: Boolean = isDora
+
+    override operator fun equals(other: Any?) = (other is Tile) && (other.suit == this.suit) && (other.value == other.value)
 
     fun toDrawable(c: Context): Int {
         var suitString : String = suit.toString().lowercase()
@@ -36,10 +41,30 @@ class Tile(inputSuit: Suit, inputValue: Int) {
             }
         }
 
-        if(value == 10) {
+        if(value == 5 && dora) {
             return c.resources.getIdentifier(suitString + 5 + "_dora", "drawable", c.getPackageName())
         }
 
         return c.resources.getIdentifier(suitString + value, "drawable", c.getPackageName())
+    }
+
+    fun isConsecutive(tile: Tile): Boolean {
+        return isBelow(tile) || isAbove(tile)
+    }
+
+    fun isBelow(tile: Tile): Boolean {
+        if(suit != tile.suit) {
+            return false
+        }
+
+        return (value - 1) == tile.value
+    }
+
+    fun isAbove(tile: Tile): Boolean {
+        if(suit != tile.suit) {
+            return false
+        }
+
+        return (value + 1) == tile.value
     }
 }

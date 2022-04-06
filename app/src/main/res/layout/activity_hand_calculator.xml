@@ -145,6 +145,16 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
+        android:id="@+id/ivHand14"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivHand5"
+        app:layout_constraintTop_toBottomOf="@+id/ivHand5"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
         android:id="@+id/ivHand11"
         android:layout_width="39dp"
         android:layout_height="52dp"
@@ -574,6 +584,17 @@
         android:id="@+id/HandGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="ivHand1,ivHand2,ivHand3,ivHand4,ivHand5,ivHand6,ivHand7,ivHand8,ivHand9,ivHand10,ivHand11,ivHand12,ivHand13" />
+        app:constraint_referenced_ids="ivHand1,ivHand2,ivHand3,ivHand4,ivHand5,ivHand6,ivHand7,ivHand8,ivHand9,ivHand10,ivHand11,ivHand12,ivHand13,ivHand14" />
+
+    <Button
+        android:id="@+id/btnCalc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="Calculate!"
+        app:layout_constraintBottom_toTopOf="@+id/glTilesTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
