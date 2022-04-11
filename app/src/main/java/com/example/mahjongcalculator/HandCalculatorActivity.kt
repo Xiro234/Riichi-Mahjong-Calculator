@@ -104,9 +104,9 @@ class HandCalculatorActivity : AppCompatActivity() {
     }
 
     private fun redrawHand() {
-        for (i in 0 until hand.tiles.size) {
-            if(hand.tiles[i] != null) {
-                hand.tiles[i]?.toDrawable(baseContext)?.let {
+        for (i in 0 until hand.maxNumOfTiles) {
+            if(i < hand.tiles.size) {
+                hand.tiles[i].toDrawable(baseContext).let {
                     findViewById<ImageView>(binding.HandGroup.referencedIds[i]).setImageResource(it)
                 }
             }

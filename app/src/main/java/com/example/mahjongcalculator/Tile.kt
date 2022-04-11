@@ -48,9 +48,6 @@ class Tile(inputSuit: Suit, inputValue: Int, isDora: Boolean = false) {
         return c.resources.getIdentifier(suitString + value, "drawable", c.getPackageName())
     }
 
-    fun isConsecutive(tile: Tile): Boolean {
-        return isBelow(tile) || isAbove(tile)
-    }
 
     fun isBelow(tile: Tile): Boolean {
         if(suit != tile.suit) {
@@ -66,5 +63,14 @@ class Tile(inputSuit: Suit, inputValue: Int, isDora: Boolean = false) {
         }
 
         return (value + 1) == tile.value
+    }
+
+    companion object {
+        /**
+         * tile1, tile2, tile3 must be consecutive, otherwise weird behavior happens.
+         */
+        fun isMeld(tile1: Tile, tile2: Tile, tile3: Tile): Boolean {
+            return (tile1.isBelow(tile2) && tile2.isBelow(tile3)) || (tile1 == tile2 && tile2 == tile3)
+        }
     }
 }
