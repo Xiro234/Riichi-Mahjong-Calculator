@@ -11,10 +11,53 @@ class Hand {
             return false
         }
 
+        if(numOfTiles == 0) {
+            tiles[0] = Tile(suit, value, dora)
+            numOfTiles++
+            return true
+        }
+
+        var found = false
+        for(i in 0 until numOfTiles) {
+                if(tiles[i] != null) {
+                    if(tiles[i]?.suit == suit) {
+                        if(tiles[i]?.value ?: 0 >= value) {
+                            found = true
+                        }
+                    }
+                    else if(i != 0) {
+                        if (tiles[i - 1]?.suit == suit) {
+                            found = true
+                        }
+                    }
+                }
+
+            if(found) {
+                shiftTilesRight(i)
+                tiles[i] = Tile(suit, value, dora)
+                numOfTiles++
+                return true
+            }
+        }
+
         tiles[numOfTiles] = Tile(suit, value, dora)
         numOfTiles++
         Log.d(null, numOfTiles.toString())
         return true
+    }
+
+    private fun shiftTilesRight(index: Int) {
+        if(numOfTiles >= tiles.size) {
+            return
+        }
+
+        for(i in numOfTiles downTo index) {
+            if(i != 0) {
+                tiles[i] = tiles[i - 1]
+            }
+        }
+
+        tiles[index] = null
     }
 
     fun deleteTile(index: Int) : Boolean {
@@ -39,7 +82,7 @@ class Hand {
     }
 
     fun checkIfValid(): Boolean { //Using https://stackoverflow.com/questions/4937771/mahjong-winning-hand-algorithm as a reference
-        if(!tiles.all { it != null }) {
+        /*if(!tiles.all { it != null }) {
             return false
         }
 
@@ -48,10 +91,15 @@ class Hand {
             it?.visited = false
         }
 
-        return recursiveCheck()
+        return recursiveCheck()*/
+
+
+
+        return false
     }
 
     private fun recursiveCheck(): Boolean {
+        /*
         if(tiles.all { it?.winning == true } ) {
             return true
         }
@@ -124,7 +172,7 @@ class Hand {
                     }
                 }
             }
-        }
+        }*/
 
         return false
     }
