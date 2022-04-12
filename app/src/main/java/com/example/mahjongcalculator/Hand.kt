@@ -45,36 +45,96 @@ class Hand {
     }
 
     fun checkIfValid(): Boolean { //Using https://stackoverflow.com/questions/4937771/mahjong-winning-hand-algorithm as a reference
-        if(!tiles.all { it != null } || tiles.size != maxNumOfTiles) {
+        if(tiles.size != maxNumOfTiles) {
             return false
         }
 
         tiles.forEach {
-            it?.winning = false
-            it?.visited = false
+            it.winning = false
+            it.visited = false
         }
 
         return recursiveCheck()
     }
 
-    private fun recursiveCheck(): Boolean {
+    private fun recursiveCheck(foundPair: Boolean = false): Boolean {
         if(tiles.all { it.winning } ) {
             return true
         }
 
         var index = 0
-        for(i in 0 until tiles.size) {
-            if(!tiles[i].visited) {
-                index = i
-                break
+        var found = false
+        var pair = foundPair
+        do {
+            for (i in 0 until tiles.size) {
+                if (!tiles[i].visited) {
+                    index = i
+                    break
+                }
+            }
+
+            if(index >= 13) {
+                return false
+            }
+
+            if(!pair && tiles[index] == tiles[index + 1]) {
+                tiles[index].visited = true
+                tiles[index + 1].visited = true
+
+                tiles[index].winning = true
+                tiles[index + 1].winning = true
+
+                pair = true
+                found = true
+            }
+            else {
+                if(index >= 12) {
+                    return false
+                }
+                else if (Tile.isMeld(tiles[index], tiles[index + 1], tiles[index + 2])) {
+                    tiles[index].visited = true
+                    tiles[index + 1].visited = true
+                    tiles[index + 2].visited = true
+
+                    tiles[index].winning = true
+                    tiles[index + 1].winning = true
+                    tiles[index + 2].winning = true
+                    found = true
+                }
+            }
+
+            tiles[index].visited = true
+        } while(!found)
+
+        var str = ""
+
+        tiles.forEach {
+            str += it.winning.toString() + " "
+        }
+
+        Log.d(null, "$index $str")
+
+        if(recursiveCheck(pair)) {
+            return true
+        }
+        else {
+            if(pair) {
+                tiles[index].visited = false
+                tiles[index + 1].visited = false
+
+                tiles[index].winning = false
+                tiles[index + 1].winning = false
+            }
+            else {
+                tiles[index].visited = true
+                tiles[index + 1].visited = true
+                tiles[index + 2].visited = true
+
+                tiles[index].winning = false
+                tiles[index + 1].winning = false
+                tiles[index + 2].winning = false
             }
         }
-
-        if(index >= 11) {
-            return false
-        }
-
-        //if(Tile.Companion.isMeld(tiles[index], tiles[index + 1], tiles[index + 2]))
 
 
         /*for(j in 0 until numOfTiles) {

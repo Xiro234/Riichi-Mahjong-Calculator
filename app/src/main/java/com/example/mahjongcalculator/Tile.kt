@@ -1,6 +1,7 @@
 package com.example.mahjongcalculator
 
 import android.content.Context
+import android.util.Log
 
 enum class Suit {
     Sou,
@@ -17,7 +18,7 @@ class Tile(inputSuit: Suit, inputValue: Int, isDora: Boolean = false) {
     var visited: Boolean = false
     var dora: Boolean = isDora
 
-    override operator fun equals(other: Any?) = (other is Tile) && (other.suit == this.suit) && (other.value == other.value)
+    override operator fun equals(other: Any?) = (other is Tile) && (other.suit == this.suit) && (other.value == this.value)
 
     fun toDrawable(c: Context): Int {
         var suitString : String = suit.toString().lowercase()
@@ -50,14 +51,6 @@ class Tile(inputSuit: Suit, inputValue: Int, isDora: Boolean = false) {
 
 
     fun isBelow(tile: Tile): Boolean {
-        if(suit != tile.suit) {
-            return false
-        }
-
-        return (value - 1) == tile.value
-    }
-
-    fun isAbove(tile: Tile): Boolean {
         if(suit != tile.suit) {
             return false
         }
