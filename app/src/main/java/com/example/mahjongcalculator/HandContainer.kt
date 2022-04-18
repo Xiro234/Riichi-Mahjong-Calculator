@@ -10,35 +10,27 @@ import org.mahjong4j.tile.Tile
 
 class HandContainer {
     var tiles = mutableListOf<MTile>()
+    var melds: MutableList<List<MTile>> = mutableListOf()
     val maxNumOfTiles = 13
-    var last = Tile.M1
+    private var last = Tile.M1
 
     fun addTile(suit: Suit, value: Int, dora: Boolean = false): Boolean {
-        if (maxNumOfTiles == tiles.size) {
+        if (maxNumOfTiles == getSize()) {
             return false
-        }
-
-        var found = false
-        for (i in 0 until tiles.size) {
-            if (tiles[i].suit == suit) {
-                if (tiles[i].value >= value) {
-                    found = true
-                }
-            } else if (i != 0) {
-                if (tiles[i - 1].suit == suit) {
-                    found = true
-                }
-            }
-
-            if (found) {
-                tiles.add(i, MTile(suit, value, dora))
-                return true
-            }
         }
 
         tiles.add(MTile(suit, value, dora))
         Log.d(null, tiles.size.toString())
         return true
+    }
+
+    fun addMeld(currentMeld: List<MTile>): Boolean {
+        return if(checkIfMeldFits(currentMeld)) {
+            melds.add(currentMeld)
+            true
+        } else {
+            false
+        }
     }
 
     fun deleteTile(index: Int): Boolean {
@@ -86,6 +78,25 @@ class HandContainer {
             player.score
         } else {
             Score.SCORE0
+        }
+    }
+
+    fun getSize(): Int {
+        return tiles.size + melds.sumOf { it.size }
+    }
+
+    private fun checkIfMeldFits(currentMeld: List<MTile>): Boolean {
+        return if(currentMeld.size == 4) {
+            currentMeld[0] == currentMeld[1] && currentMeld[1] == currentMeld[2] && currentMeld[2] == currentMeld[3] && getSize() <= 9
+        } else if(currentMeld.size == 3) {
+            if(currentMeld.all { it.suit != Suit.Dragon && it.suit != Suit.Wind }) {
+                currentMeld[0].isBelow(currentMeld[1]) && currentMeld[1].isBelow(currentMeld[2]) && getSize() <= 10
+            } else {
+                currentMeld[0] == currentMeld[1] && currentMeld[1] == currentMeld[2] && getSize() <= 10
+            }
+        }
+        else {
+            false
         }
     }
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.Toast
 import com.example.mahjongcalculator.databinding.ActivityHandCalculatorBinding
 
 private lateinit var binding: ActivityHandCalculatorBinding
@@ -11,6 +12,9 @@ private lateinit var binding: ActivityHandCalculatorBinding
 
 class HandCalculatorActivity : AppCompatActivity() {
     var hand: HandContainer = HandContainer()
+    var kan: Boolean = false
+    var ponChii: Boolean = false
+    var currentMeld: MutableList<MTile> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,15 +87,51 @@ class HandCalculatorActivity : AppCompatActivity() {
         binding.hand.ivHand13.setOnClickListener { deleteTile(12) }
         //endregion
 
+        binding.hand.btnKan.setOnClickListener {
+            kan = !kan
+            if(!kan) {
+                currentMeld = mutableListOf()
+            }
+        }
+        binding.hand.btnPonChii.setOnClickListener {
+            ponChii = !ponChii
+            if(!ponChii) {
+                currentMeld = mutableListOf()
+            }
+        }
+
         /*binding.btnCalc.setOnClickListener {
             Log.d(null, hand.getPoints().toString())
         }*/
     }
 
     private fun newTile(suit: Suit, value: Int, dora: Boolean = false) {
-        if(hand.addTile(suit, value, dora)) {
-            redrawHand()
+        if(ponChii) {
+            currentMeld.add(MTile(suit, value, dora))
+
+            if(currentMeld.size == 3) {
+                if(!hand.addMeld(currentMeld)) {
+                    Toast.makeText(applicationContext, "Invalid Pon or Chii", Toast.LENGTH_SHORT).show()
+                }
+                currentMeld = mutableListOf()
+                ponChii = false
+            }
         }
+        else if(kan) {
+            currentMeld.add(MTile(suit, value, dora))
+
+            if(currentMeld.size == 4) {
+                if(!hand.addMeld(currentMeld)) {
+                    Toast.makeText(applicationContext, "Invalid Kan", Toast.LENGTH_SHORT).show()
+                }
+                currentMeld = mutableListOf()
+                kan = false
+            }
+        } else {
+            hand.addTile(suit, value, dora)
+        }
+
+        redrawHand()
     }
 
     private fun deleteTile(index: Int) {
@@ -111,5 +151,32 @@ class HandCalculatorActivity : AppCompatActivity() {
                 findViewById<ImageView>(binding.hand.HandGroup.referencedIds[i]).setImageResource(R.drawable.blank)
             }
         }
+
+        var numOfThree = 0
+        var numOfFour = 0
+        hand.melds.forEach {
+            val skip = numOfThree * 3 + numOfFour * 4
+
+            if(it.size == 4) {
+                for(k in it.indices) {
+                    if(k == 1 || k == 2) {
+                        findViewById<ImageView>(binding.hand.HandGroup.referencedIds[hand.tiles.size + k + skip]).setImageResource(R.drawable.back)
+                    }
+                    else {
+                        findViewById<ImageView>(binding.hand.HandGroup.referencedIds[hand.tiles.size + k + skip]).setImageResource(it[k].toDrawable(baseContext))
+                    }
+                }
+
+                numOfFour++
+            }
+            else if(it.size == 3) {
+                for(k in it.indices) {
+                    findViewById<ImageView>(binding.hand.HandGroup.referencedIds[hand.tiles.size + k + skip]).setImageResource(it[k].toDrawable(baseContext))
+                }
+
+                numOfThree++
+            }
+        }
+
     }
 }

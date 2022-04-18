@@ -144,4 +144,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="ivHand3,ivHand7,ivHand6,ivHand2,ivHand13,ivHand1,ivHand10,ivHand12,ivHand8,ivHand11,ivHand5,ivHand4,ivHand9" />
+
+    <Button
+        android:id="@+id/btnPonChii"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="Pon/Chii"
+        app:layout_constraintEnd_toStartOf="@+id/btnKan"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivHand9" />
+
+    <Button
+        android:id="@+id/btnKan"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="Kan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnPonChii"
+        app:layout_constraintTop_toTopOf="@+id/btnPonChii" />
 </androidx.constraintlayout.widget.ConstraintLayout>
