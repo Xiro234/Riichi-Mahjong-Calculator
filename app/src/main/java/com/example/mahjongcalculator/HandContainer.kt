@@ -20,7 +20,6 @@ class HandContainer {
         }
 
         tiles.add(MTile(suit, value, dora))
-        Log.d(null, tiles.size.toString())
         return true
     }
 
@@ -34,11 +33,27 @@ class HandContainer {
     }
 
     fun deleteTile(index: Int): Boolean {
-        if (index >= tiles.size || index >= maxNumOfTiles) {
+        if (index >= getSize()) {
             return false
         }
 
-        tiles.removeAt(index)
+        if(index < tiles.size) {
+            tiles.removeAt(index)
+        }
+        else {
+            val newIndex = index - tiles.size
+            var count = 0
+            for(i in 0 until melds.size) {
+                for(j in 0 until melds[i].size) {
+                    count++
+                }
+
+                if(count >= newIndex) {
+                    melds.removeAt(i)
+                    break
+                }
+            }
+        }
         return true
     }
 
@@ -54,8 +69,6 @@ class HandContainer {
 
     fun getValid(): Boolean {
         val array = getAsArray()
-
-        Log.d(null, array.joinToString())
 
         last = Tile.M6
         val hand = Hands(array, last)
@@ -90,7 +103,7 @@ class HandContainer {
             currentMeld[0] == currentMeld[1] && currentMeld[1] == currentMeld[2] && currentMeld[2] == currentMeld[3] && getSize() <= 9
         } else if(currentMeld.size == 3) {
             if(currentMeld.all { it.suit != Suit.Dragon && it.suit != Suit.Wind }) {
-                currentMeld[0].isBelow(currentMeld[1]) && currentMeld[1].isBelow(currentMeld[2]) && getSize() <= 10
+                (currentMeld[0].isBelow(currentMeld[1]) && currentMeld[1].isBelow(currentMeld[2]) && getSize() <= 10) || (currentMeld[0] == currentMeld[1] && currentMeld[1] == currentMeld[2] && getSize() <= 10)
             } else {
                 currentMeld[0] == currentMeld[1] && currentMeld[1] == currentMeld[2] && getSize() <= 10
             }

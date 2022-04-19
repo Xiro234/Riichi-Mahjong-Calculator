@@ -6,28 +6,6 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/ivHand8"
-        android:layout_width="39dp"
-        android:layout_height="52dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand7"
-        app:layout_constraintTop_toTopOf="@+id/ivHand7"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand7"
-        android:layout_width="39dp"
-        android:layout_height="52dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand6"
-        app:layout_constraintTop_toTopOf="@+id/ivHand6"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
         android:id="@+id/ivHand1"
         android:layout_width="39dp"
         android:layout_height="52dp"
@@ -39,49 +17,14 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/ivHand9"
-        android:layout_width="39dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivHand1"
-        app:layout_constraintTop_toBottomOf="@+id/ivHand1"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand13"
+        android:id="@+id/ivHand2"
         android:layout_width="39dp"
         android:layout_height="52dp"
         android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivHand5"
-        app:layout_constraintTop_toTopOf="@+id/ivHand12"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand11"
-        android:layout_width="39dp"
-        android:layout_height="52dp"
-        android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivHand3"
-        app:layout_constraintTop_toTopOf="@+id/ivHand10"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand12"
-        android:layout_width="39dp"
-        android:layout_height="52dp"
-        android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivHand4"
-        app:layout_constraintTop_toTopOf="@+id/ivHand11"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand10"
-        android:layout_width="39dp"
-        android:layout_height="52dp"
-        android:background="@drawable/front"
-        app:layout_constraintStart_toStartOf="@+id/ivHand2"
-        app:layout_constraintTop_toTopOf="@+id/ivHand9"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand1"
+        app:layout_constraintTop_toTopOf="@+id/ivHand1"
         app:srcCompat="@drawable/blank" />
 
     <ImageView
@@ -93,17 +36,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand2"
         app:layout_constraintTop_toTopOf="@+id/ivHand2"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
-        android:id="@+id/ivHand2"
-        android:layout_width="39dp"
-        android:layout_height="52dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivHand1"
-        app:layout_constraintTop_toTopOf="@+id/ivHand1"
         app:srcCompat="@drawable/blank" />
 
     <ImageView
@@ -139,11 +71,73 @@
         app:layout_constraintTop_toTopOf="@+id/ivHand5"
         app:srcCompat="@drawable/blank" />
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/HandGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="ivHand3,ivHand7,ivHand6,ivHand2,ivHand13,ivHand1,ivHand10,ivHand12,ivHand8,ivHand11,ivHand5,ivHand4,ivHand9" />
+    <ImageView
+        android:id="@+id/ivHand7"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivHand8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand6"
+        app:layout_constraintTop_toTopOf="@+id/ivHand6"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/ivHand8"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHand7"
+        app:layout_constraintTop_toTopOf="@+id/ivHand7"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/ivHand9"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivHand1"
+        app:layout_constraintTop_toBottomOf="@+id/ivHand1"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/ivHand10"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivHand2"
+        app:layout_constraintTop_toTopOf="@+id/ivHand9"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/ivHand11"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivHand3"
+        app:layout_constraintTop_toTopOf="@+id/ivHand10"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/ivHand12"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivHand4"
+        app:layout_constraintTop_toTopOf="@+id/ivHand11"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/ivHand13"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivHand5"
+        app:layout_constraintTop_toTopOf="@+id/ivHand12"
+        app:srcCompat="@drawable/blank" />
 
     <Button
         android:id="@+id/btnPonChii"
@@ -165,4 +159,11 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnPonChii"
         app:layout_constraintTop_toTopOf="@+id/btnPonChii" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/HandGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivHand1,ivHand2,ivHand3,ivHand4,ivHand5,ivHand6,ivHand7,ivHand8,ivHand9,ivHand10,ivHand11,ivHand12,ivHand13" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

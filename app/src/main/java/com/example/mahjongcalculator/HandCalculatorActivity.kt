@@ -24,7 +24,6 @@ class HandCalculatorActivity : AppCompatActivity() {
         setContentView(view)
 
         //region MAN BUTTONS
-
         binding.calc.ivMan1.setOnClickListener { newTile(Suit.Man, 1) }
         binding.calc.ivMan2.setOnClickListener { newTile(Suit.Man, 2) }
         binding.calc.ivMan3.setOnClickListener { newTile(Suit.Man, 3) }
@@ -99,10 +98,6 @@ class HandCalculatorActivity : AppCompatActivity() {
                 currentMeld = mutableListOf()
             }
         }
-
-        /*binding.btnCalc.setOnClickListener {
-            Log.d(null, hand.getPoints().toString())
-        }*/
     }
 
     private fun newTile(suit: Suit, value: Int, dora: Boolean = false) {
