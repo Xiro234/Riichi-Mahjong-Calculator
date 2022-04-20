@@ -1,6 +1,8 @@
 package com.example.mahjongcalculator
 
 import android.content.Context
+import org.mahjong4j.tile.Tile
+import org.mahjong4j.tile.TileType
 
 enum class Suit {
     Sou,
@@ -10,13 +12,9 @@ enum class Suit {
     Dragon //1: White, 2: Green, 3: Red
 }
 
-class MTile(inputSuit: Suit, inputValue: Int, isDora: Boolean = false) {
+class MTile(inputSuit: Suit, inputValue: Int) {
     var suit: Suit = inputSuit
     var value: Int = inputValue
-    var winning: Boolean = false
-    var visited: Boolean = false
-    var dora: Boolean = isDora
-
     override operator fun equals(other: Any?) = (other is MTile) && (other.suit == this.suit) && (other.value == this.value)
 
     fun toDrawable(c: Context): Int {
@@ -39,10 +37,6 @@ class MTile(inputSuit: Suit, inputValue: Int, isDora: Boolean = false) {
                 3 -> R.drawable.chun
                 else -> R.drawable.blank
             }
-        }
-
-        if(value == 5 && dora) {
-            return c.resources.getIdentifier(suitString + 5 + "_dora", "drawable", c.getPackageName())
         }
 
         return c.resources.getIdentifier(suitString + value, "drawable", c.getPackageName())
@@ -75,5 +69,30 @@ class MTile(inputSuit: Suit, inputValue: Int, isDora: Boolean = false) {
                 (31 + value) - 1
             }
         }
+    }
+
+    fun toTileEnum(): Tile {
+        when(suit) {
+            Suit.Man -> Tile.valueOf("M$value")
+            Suit.Pin -> Tile.valueOf("P$value")
+            Suit.Sou -> Tile.valueOf("S$value")
+            Suit.Dragon -> when (value) {
+                1 -> Tile.HAK
+                2 -> Tile.HAT
+                else -> {
+                    Tile.CHN
+                }
+            }
+            else -> when (value) {
+                1 -> Tile.TON
+                2 -> Tile.NAN
+                3 -> Tile.SHA
+                else -> {
+                    Tile.PEI
+                }
+            }
+        }
+
+        return Tile.M1
     }
 }

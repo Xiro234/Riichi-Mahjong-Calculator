@@ -1,6 +1,5 @@
 package com.example.mahjongcalculator
 
-import android.util.Log
 import org.mahjong4j.GeneralSituation
 import org.mahjong4j.PersonalSituation
 import org.mahjong4j.Player
@@ -10,22 +9,22 @@ import org.mahjong4j.tile.Tile
 
 class HandContainer {
     var tiles = mutableListOf<MTile>()
-    var melds: MutableList<List<MTile>> = mutableListOf()
+    var melds: MutableList<Meld> = mutableListOf()
     val maxNumOfTiles = 13
     private var last = Tile.M1
 
-    fun addTile(suit: Suit, value: Int, dora: Boolean = false): Boolean {
+    fun addTile(suit: Suit, value: Int): Boolean {
         if (maxNumOfTiles == getSize()) {
             return false
         }
 
-        tiles.add(MTile(suit, value, dora))
+        tiles.add(MTile(suit, value))
         return true
     }
 
-    fun addMeld(currentMeld: List<MTile>): Boolean {
+    fun addMeld(currentMeld: List<MTile>, closed: Boolean = false): Boolean {
         return if(checkIfMeldFits(currentMeld)) {
-            melds.add(currentMeld)
+            melds.add(Meld(currentMeld, closed))
             true
         } else {
             false
@@ -44,7 +43,7 @@ class HandContainer {
             val newIndex = index - tiles.size
             var count = 0
             for(i in 0 until melds.size) {
-                for(j in 0 until melds[i].size) {
+                for(j in 0 until melds[i].tiles.size) {
                     count++
                 }
 
@@ -95,7 +94,7 @@ class HandContainer {
     }
 
     fun getSize(): Int {
-        return tiles.size + melds.sumOf { it.size }
+        return tiles.size + melds.sumOf { it.tiles.size }
     }
 
     private fun checkIfMeldFits(currentMeld: List<MTile>): Boolean {

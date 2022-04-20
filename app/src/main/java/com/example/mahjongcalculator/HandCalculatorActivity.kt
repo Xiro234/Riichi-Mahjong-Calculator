@@ -12,7 +12,8 @@ private lateinit var binding: ActivityHandCalculatorBinding
 
 class HandCalculatorActivity : AppCompatActivity() {
     var hand: HandContainer = HandContainer()
-    var kan: Boolean = false
+    var oKan: Boolean = false
+    var cKan: Boolean = false
     var ponChii: Boolean = false
     var currentMeld: MutableList<MTile> = mutableListOf()
 
@@ -86,12 +87,20 @@ class HandCalculatorActivity : AppCompatActivity() {
         binding.hand.ivHand13.setOnClickListener { deleteTile(12) }
         //endregion
 
-        binding.hand.btnKan.setOnClickListener {
-            kan = !kan
-            if(!kan) {
+        binding.hand.btnOKan.setOnClickListener {
+            oKan = !oKan
+            if(!oKan) {
                 currentMeld = mutableListOf()
             }
         }
+
+        binding.hand.btnCKan.setOnClickListener {
+            cKan = !cKan
+            if(!cKan) {
+                currentMeld = mutableListOf()
+            }
+        }
+
         binding.hand.btnPonChii.setOnClickListener {
             ponChii = !ponChii
             if(!ponChii) {
@@ -100,9 +109,9 @@ class HandCalculatorActivity : AppCompatActivity() {
         }
     }
 
-    private fun newTile(suit: Suit, value: Int, dora: Boolean = false) {
+    private fun newTile(suit: Suit, value: Int) {
         if(ponChii) {
-            currentMeld.add(MTile(suit, value, dora))
+            currentMeld.add(MTile(suit, value))
 
             if(currentMeld.size == 3) {
                 if(!hand.addMeld(currentMeld)) {
@@ -112,18 +121,20 @@ class HandCalculatorActivity : AppCompatActivity() {
                 ponChii = false
             }
         }
-        else if(kan) {
-            currentMeld.add(MTile(suit, value, dora))
+        else if(oKan || cKan) {
+            currentMeld.add(MTile(suit, value))
 
             if(currentMeld.size == 4) {
-                if(!hand.addMeld(currentMeld)) {
+                if(!hand.addMeld(currentMeld, cKan)) {
                     Toast.makeText(applicationContext, "Invalid Kan", Toast.LENGTH_SHORT).show()
                 }
                 currentMeld = mutableListOf()
-                kan = false
+                oKan = false
+                cKan = false
             }
-        } else {
-            hand.addTile(suit, value, dora)
+        }
+        else {
+            hand.addTile(suit, value)
         }
 
         redrawHand()
@@ -152,21 +163,21 @@ class HandCalculatorActivity : AppCompatActivity() {
         hand.melds.forEach {
             val skip = numOfThree * 3 + numOfFour * 4
 
-            if(it.size == 4) {
-                for(k in it.indices) {
-                    if(k == 1 || k == 2) {
+            if(it.tiles.size == 4) {
+                for(k in it.tiles.indices) {
+                    if(k == 0 || k == 4 && it.closed) {
                         findViewById<ImageView>(binding.hand.HandGroup.referencedIds[hand.tiles.size + k + skip]).setImageResource(R.drawable.back)
                     }
                     else {
-                        findViewById<ImageView>(binding.hand.HandGroup.referencedIds[hand.tiles.size + k + skip]).setImageResource(it[k].toDrawable(baseContext))
+                        findViewById<ImageView>(binding.hand.HandGroup.referencedIds[hand.tiles.size + k + skip]).setImageResource(it.tiles[k].toDrawable(baseContext))
                     }
                 }
 
                 numOfFour++
             }
-            else if(it.size == 3) {
-                for(k in it.indices) {
-                    findViewById<ImageView>(binding.hand.HandGroup.referencedIds[hand.tiles.size + k + skip]).setImageResource(it[k].toDrawable(baseContext))
+            else if(it.tiles.size == 3) {
+                for(k in it.tiles.indices) {
+                    findViewById<ImageView>(binding.hand.HandGroup.referencedIds[hand.tiles.size + k + skip]).setImageResource(it.tiles[k].toDrawable(baseContext))
                 }
 
                 numOfThree++

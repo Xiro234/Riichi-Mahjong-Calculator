@@ -145,13 +145,13 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:text="Pon/Chii"
-        app:layout_constraintEnd_toStartOf="@+id/btnKan"
+        app:layout_constraintEnd_toStartOf="@+id/btnOKan"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivHand9" />
+        app:layout_constraintTop_toBottomOf="@+id/ivHand11" />
 
     <Button
-        android:id="@+id/btnKan"
+        android:id="@+id/btnOKan"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:text="Kan"
@@ -165,5 +165,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="ivHand1,ivHand2,ivHand3,ivHand4,ivHand5,ivHand6,ivHand7,ivHand8,ivHand9,ivHand10,ivHand11,ivHand12,ivHand13" />
+
+    <Button
+        android:id="@+id/btnCKan"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:text="Closed Kan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnOKan" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
