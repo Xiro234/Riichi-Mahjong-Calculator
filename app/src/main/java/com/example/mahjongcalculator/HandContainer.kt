@@ -74,15 +74,13 @@ class HandContainer {
         return hand.canWin
     }
 
-    fun getPoints(): Score {
+    fun getPoints(personalSituation: PersonalSituation, generalSituation: GeneralSituation): Score {
         return if(getValid()) {
             val array = getAsArray()
 
             last = Tile.M6
             val hand = Hands(array, last)
 
-            val personalSituation = PersonalSituation(true, false, false, false, false, false, Tile.TON)
-            val generalSituation = GeneralSituation(false, false, Tile.TON, listOf(Tile.M1), listOf(Tile.M2))
             val player = Player(hand, generalSituation, personalSituation)
 
             player.calculate()

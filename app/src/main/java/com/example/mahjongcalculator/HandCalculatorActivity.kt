@@ -2,20 +2,25 @@ package com.example.mahjongcalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import com.example.mahjongcalculator.databinding.ActivityHandCalculatorBinding
+import org.mahjong4j.GeneralSituation
+import org.mahjong4j.PersonalSituation
 
 private lateinit var binding: ActivityHandCalculatorBinding
 
 
 class HandCalculatorActivity : AppCompatActivity() {
-    var hand: HandContainer = HandContainer()
-    var oKan: Boolean = false
-    var cKan: Boolean = false
-    var ponChii: Boolean = false
-    var currentMeld: MutableList<MTile> = mutableListOf()
+    private var hand: HandContainer = HandContainer()
+    private var oKan: Boolean = false
+    private var cKan: Boolean = false
+    private var ponChii: Boolean = false
+    private var currentMeld: MutableList<MTile> = mutableListOf()
+    private var dora: MutableList<MTile> = mutableListOf()
+    private var seatWind: MTile = MTile(Suit.Wind, 0)
+    private var prevalentWind: MTile = MTile(Suit.Wind, 0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,6 +92,54 @@ class HandCalculatorActivity : AppCompatActivity() {
         binding.hand.ivHand13.setOnClickListener { deleteTile(12) }
         //endregion
 
+        //region DORA BUTTONS
+        binding.situation.ivDora1.setOnClickListener { deleteTile(0) }
+        binding.situation.ivDora2.setOnClickListener { deleteTile(1) }
+        binding.situation.ivDora3.setOnClickListener { deleteTile(2) }
+        binding.situation.ivDora4.setOnClickListener { deleteTile(3) }
+        binding.situation.ivDora5.setOnClickListener { deleteTile(4) }
+        //
+
+        //region WIND BUTTONS
+        binding.situation.ivSeatWind1.setOnClickListener { setSeatWind(0) }
+        binding.situation.ivSeatWind2.setOnClickListener { setSeatWind(1) }
+        binding.situation.ivSeatWind3.setOnClickListener { setSeatWind(2) }
+        binding.situation.ivSeatWind4.setOnClickListener { setSeatWind(3) }
+
+        binding.situation.ivPrevalentWind1.setOnClickListener { setPrevalentWind(0) }
+        binding.situation.ivPrevalentWind2.setOnClickListener { setPrevalentWind(1) }
+        binding.situation.ivPrevalentWind3.setOnClickListener { setPrevalentWind(2) }
+        binding.situation.ivPrevalentWind4.setOnClickListener { setPrevalentWind(3) }
+        //
+
+        binding.btnNext.setOnClickListener {
+            if(binding.hand.root.visibility == View.VISIBLE) {
+                binding.hand.root.visibility = View.GONE
+                binding.situation.root.visibility = View.VISIBLE
+            }
+            else if(binding.situation.root.visibility == View.VISIBLE) {
+                val personalSituation = PersonalSituation(
+                    binding.situation.tsumo.isChecked,
+                    binding.situation.ippatsu.isChecked,
+                    binding.situation.riichi.isChecked,
+                    binding.situation.doubleRiichi.isChecked,
+                    binding.situation.chankan.isChecked,
+                    binding.situation.rinshankaiho.isChecked,
+                    seatWind.toTileEnum()
+                )
+
+                val generalSituation = GeneralSituation(
+                    binding.situation.firstRound.isChecked,
+                    binding.situation.houtei.isChecked,
+                    prevalentWind.toTileEnum(),
+                    dora.map { it.toTileEnum() }.toList(),
+                    listOf()
+                )
+
+                hand.getPoints(personalSituation, generalSituation)
+            }
+        }
+
         binding.hand.btnOKan.setOnClickListener {
             oKan = !oKan
             if(!oKan) {
@@ -109,40 +162,94 @@ class HandCalculatorActivity : AppCompatActivity() {
         }
     }
 
+    private fun setSeatWind(value: Int) {
+        seatWind = MTile(Suit.Wind, value)
+        redrawSeatWind()
+    }
+
+    private fun redrawSeatWind() {
+        binding.situation.SeatWinds.referencedIds.forEach { findViewById<ImageView>(it).setBackgroundResource(R.drawable.front) }
+        findViewById<ImageView>(binding.situation.SeatWinds.referencedIds[seatWind.value]).setBackgroundResource(R.drawable.highlight)
+    }
+
+    private fun setPrevalentWind(value: Int) {
+        prevalentWind = MTile(Suit.Wind, value)
+        redrawPrevalentWind()
+    }
+
+    private fun redrawPrevalentWind() {
+        binding.situation.RoundWinds.referencedIds.forEach { findViewById<ImageView>(it).setBackgroundResource(R.drawable.front) }
+        findViewById<ImageView>(binding.situation.RoundWinds.referencedIds[prevalentWind.value]).setBackgroundResource(R.drawable.highlight)
+    }
+
     private fun newTile(suit: Suit, value: Int) {
-        if(ponChii) {
-            currentMeld.add(MTile(suit, value))
-
-            if(currentMeld.size == 3) {
-                if(!hand.addMeld(currentMeld)) {
-                    Toast.makeText(applicationContext, "Invalid Pon or Chii", Toast.LENGTH_SHORT).show()
-                }
-                currentMeld = mutableListOf()
-                ponChii = false
+        if(binding.situation.root.visibility == View.VISIBLE) {
+            if(dora.size >= 5) {
+                return
             }
-        }
-        else if(oKan || cKan) {
-            currentMeld.add(MTile(suit, value))
-
-            if(currentMeld.size == 4) {
-                if(!hand.addMeld(currentMeld, cKan)) {
-                    Toast.makeText(applicationContext, "Invalid Kan", Toast.LENGTH_SHORT).show()
-                }
-                currentMeld = mutableListOf()
-                oKan = false
-                cKan = false
+            else {
+                dora.add(MTile(suit, value))
+                redrawDora()
             }
         }
         else {
-            hand.addTile(suit, value)
-        }
+            if (ponChii) {
+                currentMeld.add(MTile(suit, value))
 
-        redrawHand()
+                if (currentMeld.size == 3) {
+                    if (!hand.addMeld(currentMeld)) {
+                        Toast.makeText(
+                            applicationContext,
+                            "Invalid Pon or Chii",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    currentMeld = mutableListOf()
+                    ponChii = false
+                }
+            } else if (oKan || cKan) {
+                currentMeld.add(MTile(suit, value))
+
+                if (currentMeld.size == 4) {
+                    if (!hand.addMeld(currentMeld, cKan)) {
+                        Toast.makeText(applicationContext, "Invalid Kan", Toast.LENGTH_SHORT).show()
+                    }
+                    currentMeld = mutableListOf()
+                    oKan = false
+                    cKan = false
+                }
+            } else {
+                hand.addTile(suit, value)
+            }
+
+            redrawHand()
+        }
     }
 
     private fun deleteTile(index: Int) {
-        if(hand.deleteTile(index)) {
-            redrawHand()
+        if(binding.situation.root.visibility == View.VISIBLE) {
+            if(index < dora.size) {
+                dora.removeAt(index)
+                redrawDora()
+            }
+        }
+        else {
+            if (hand.deleteTile(index)) {
+                redrawHand()
+            }
+        }
+    }
+
+    private fun redrawDora() {
+        for (i in 0 until 5) {
+            if(i < dora.size) {
+                dora[i].toDrawable(baseContext).let {
+                    findViewById<ImageView>(binding.situation.DoraGroup.referencedIds[i]).setImageResource(it)
+                }
+            }
+            else {
+                findViewById<ImageView>(binding.situation.DoraGroup.referencedIds[i]).setImageResource(R.drawable.blank)
+            }
         }
     }
 

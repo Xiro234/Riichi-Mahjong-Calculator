@@ -21,6 +21,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <include
+        android:id="@+id/situation"
         layout="@layout/situation_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

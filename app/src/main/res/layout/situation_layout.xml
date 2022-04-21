@@ -6,17 +6,6 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/ivDora5"
-        android:layout_width="39dp"
-        android:layout_height="52dp"
-        android:background="@drawable/front"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivDora4"
-        app:layout_constraintTop_toTopOf="@+id/ivDora4"
-        app:srcCompat="@drawable/blank" />
-
-    <ImageView
         android:id="@+id/ivDora1"
         android:layout_width="39dp"
         android:layout_height="52dp"
@@ -29,14 +18,14 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/ivDora4"
+        android:id="@+id/ivDora2"
         android:layout_width="39dp"
         android:layout_height="52dp"
         android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivDora5"
+        app:layout_constraintEnd_toStartOf="@+id/ivDora3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivDora3"
-        app:layout_constraintTop_toTopOf="@+id/ivDora3"
+        app:layout_constraintStart_toEndOf="@+id/ivDora1"
+        app:layout_constraintTop_toTopOf="@+id/ivDora1"
         app:srcCompat="@drawable/blank" />
 
     <ImageView
@@ -51,14 +40,25 @@
         app:srcCompat="@drawable/blank" />
 
     <ImageView
-        android:id="@+id/ivDora2"
+        android:id="@+id/ivDora4"
         android:layout_width="39dp"
         android:layout_height="52dp"
         android:background="@drawable/front"
-        app:layout_constraintEnd_toStartOf="@+id/ivDora3"
+        app:layout_constraintEnd_toStartOf="@+id/ivDora5"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivDora1"
-        app:layout_constraintTop_toTopOf="@+id/ivDora1"
+        app:layout_constraintStart_toEndOf="@+id/ivDora3"
+        app:layout_constraintTop_toTopOf="@+id/ivDora3"
+        app:srcCompat="@drawable/blank" />
+
+    <ImageView
+        android:id="@+id/ivDora5"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivDora4"
+        app:layout_constraintTop_toTopOf="@+id/ivDora4"
         app:srcCompat="@drawable/blank" />
 
     <ImageView
@@ -164,89 +164,88 @@
         app:layout_constraintGuide_percent="0.32" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/riichi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Riichi?"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox7" />
+        app:layout_constraintTop_toBottomOf="@+id/firstRound" />
 
     <CheckBox
-        android:id="@+id/checkBox6"
+        android:id="@+id/rinshankaiho"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Rinshankaiho?"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/checkBox5"
-        app:layout_constraintTop_toTopOf="@+id/checkBox5" />
+        app:layout_constraintStart_toEndOf="@+id/ippatsu"
+        app:layout_constraintTop_toTopOf="@+id/ippatsu" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/chankan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:text="Chankan?"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+        app:layout_constraintStart_toEndOf="@+id/tsumo"
+        app:layout_constraintTop_toTopOf="@+id/tsumo" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/doubleRiichi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Double?"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/checkBox"
-        app:layout_constraintTop_toTopOf="@+id/checkBox" />
+        app:layout_constraintStart_toEndOf="@+id/riichi"
+        app:layout_constraintTop_toTopOf="@+id/riichi" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/ippatsu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Ippatsu?"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        app:layout_constraintTop_toBottomOf="@+id/tsumo" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/tsumo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Tsumo?"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/riichi" />
+
+    <CheckBox
+        android:id="@+id/firstRound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Tsumo?"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
-
-    <CheckBox
-        android:id="@+id/checkBox7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="First round?"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/ivPrevalentWind1" />
 
     <CheckBox
-        android:id="@+id/checkBox8"
+        android:id="@+id/houtei"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Houtei?"
         android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/checkBox7"
-        app:layout_constraintTop_toTopOf="@+id/checkBox7" />
+        app:layout_constraintStart_toEndOf="@+id/firstRound"
+        app:layout_constraintTop_toTopOf="@+id/firstRound" />
 
     <TextView
         android:id="@+id/textView"
@@ -287,9 +286,27 @@
         android:layout_height="wrap_content"
         android:text="Round Conditions:"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox7"
+        app:layout_constraintBottom_toBottomOf="@+id/firstRound"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/checkBox7" />
+        app:layout_constraintTop_toTopOf="@+id/firstRound" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/DoraGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivDora1,ivDora2,ivDora3,ivDora4,ivDora5" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/SeatWinds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivSeatWind1,ivSeatWind2,ivSeatWind3,ivSeatWind4" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/RoundWinds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivPrevalentWind1,ivPrevalentWind2,ivPrevalentWind3,ivPrevalentWind4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
