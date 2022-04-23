@@ -5,13 +5,14 @@ import org.mahjong4j.PersonalSituation
 import org.mahjong4j.Player
 import org.mahjong4j.Score
 import org.mahjong4j.hands.Hands
-import org.mahjong4j.tile.Tile
+import org.mahjong4j.yaku.normals.NormalYaku
 
 class HandContainer {
     var tiles = mutableListOf<MTile>()
     var melds: MutableList<Meld> = mutableListOf()
-    val maxNumOfTiles = 13
-    private var last = Tile.M1
+    val maxNumOfTiles = 14
+    private lateinit var player: Player
+    var last = MTile(Suit.Man, 1)
 
     fun addTile(suit: Suit, value: Int): Boolean {
         if (maxNumOfTiles == getSize()) {
@@ -69,26 +70,29 @@ class HandContainer {
     fun getValid(): Boolean {
         val array = getAsArray()
 
-        last = Tile.M6
-        val hand = Hands(array, last)
+        val hand = Hands(array, last.toTileEnum())
+
         return hand.canWin
     }
 
-    fun getPoints(personalSituation: PersonalSituation, generalSituation: GeneralSituation): Score {
+    fun getPoints(): Score {
         return if(getValid()) {
-            val array = getAsArray()
-
-            last = Tile.M6
-            val hand = Hands(array, last)
-
-            val player = Player(hand, generalSituation, personalSituation)
-
-            player.calculate()
-
             player.score
         } else {
             Score.SCORE0
         }
+    }
+
+    fun getHan(): Int {
+        return player.han
+    }
+
+    fun getFu(): Int {
+        return player.fu
+    }
+
+    fun getYaku(): List<NormalYaku> {
+        return player.normalYakuList
     }
 
     fun getSize(): Int {
@@ -107,6 +111,18 @@ class HandContainer {
         }
         else {
             false
+        }
+    }
+
+    fun calculate(personalSituation: PersonalSituation, generalSituation: GeneralSituation) {
+        if(getValid()) {
+            val array = getAsArray()
+
+            val hand = Hands(array, last.toTileEnum())
+
+            player = Player(hand, generalSituation, personalSituation)
+
+            player.calculate()
         }
     }
 }

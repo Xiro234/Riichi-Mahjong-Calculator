@@ -1,7 +1,9 @@
 package com.example.mahjongcalculator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -19,8 +21,11 @@ class HandCalculatorActivity : AppCompatActivity() {
     private var ponChii: Boolean = false
     private var currentMeld: MutableList<MTile> = mutableListOf()
     private var dora: MutableList<MTile> = mutableListOf()
+    private var uradora: MutableList<MTile> = mutableListOf()
     private var seatWind: MTile = MTile(Suit.Wind, 0)
     private var prevalentWind: MTile = MTile(Suit.Wind, 0)
+    private var placeDora: Boolean = false
+    private var placeUradora: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,11 +98,17 @@ class HandCalculatorActivity : AppCompatActivity() {
         //endregion
 
         //region DORA BUTTONS
-        binding.situation.ivDora1.setOnClickListener { deleteTile(0) }
-        binding.situation.ivDora2.setOnClickListener { deleteTile(1) }
-        binding.situation.ivDora3.setOnClickListener { deleteTile(2) }
-        binding.situation.ivDora4.setOnClickListener { deleteTile(3) }
-        binding.situation.ivDora5.setOnClickListener { deleteTile(4) }
+        binding.dora.ivDora1.setOnClickListener { deleteDora(0) }
+        binding.dora.ivDora2.setOnClickListener { deleteDora(1) }
+        binding.dora.ivDora3.setOnClickListener { deleteDora(2) }
+        binding.dora.ivDora4.setOnClickListener { deleteDora(3) }
+        binding.dora.ivDora5.setOnClickListener { deleteDora(4) }
+
+        binding.dora.ivUradora1.setOnClickListener { deleteUradora(0) }
+        binding.dora.ivUradora2.setOnClickListener { deleteUradora(1) }
+        binding.dora.ivUradora3.setOnClickListener { deleteUradora(2) }
+        binding.dora.ivUradora4.setOnClickListener { deleteUradora(3) }
+        binding.dora.ivUradora5.setOnClickListener { deleteUradora(4) }
         //
 
         //region WIND BUTTONS
@@ -112,33 +123,7 @@ class HandCalculatorActivity : AppCompatActivity() {
         binding.situation.ivPrevalentWind4.setOnClickListener { setPrevalentWind(3) }
         //
 
-        binding.btnNext.setOnClickListener {
-            if(binding.hand.root.visibility == View.VISIBLE) {
-                binding.hand.root.visibility = View.GONE
-                binding.situation.root.visibility = View.VISIBLE
-            }
-            else if(binding.situation.root.visibility == View.VISIBLE) {
-                val personalSituation = PersonalSituation(
-                    binding.situation.tsumo.isChecked,
-                    binding.situation.ippatsu.isChecked,
-                    binding.situation.riichi.isChecked,
-                    binding.situation.doubleRiichi.isChecked,
-                    binding.situation.chankan.isChecked,
-                    binding.situation.rinshankaiho.isChecked,
-                    seatWind.toTileEnum()
-                )
-
-                val generalSituation = GeneralSituation(
-                    binding.situation.firstRound.isChecked,
-                    binding.situation.houtei.isChecked,
-                    prevalentWind.toTileEnum(),
-                    dora.map { it.toTileEnum() }.toList(),
-                    listOf()
-                )
-
-                hand.getPoints(personalSituation, generalSituation)
-            }
-        }
+        binding.btnNext.setOnClickListener { next() }
 
         binding.hand.btnOKan.setOnClickListener {
             oKan = !oKan
@@ -158,6 +143,60 @@ class HandCalculatorActivity : AppCompatActivity() {
             ponChii = !ponChii
             if(!ponChii) {
                 currentMeld = mutableListOf()
+            }
+        }
+    }
+
+    private fun next() {
+        if(binding.hand.root.visibility == View.VISIBLE) {
+            binding.hand.root.visibility = View.GONE
+            binding.dora.root.visibility = View.VISIBLE
+            placeDora = true
+        }
+        else if(binding.dora.root.visibility == View.VISIBLE) {
+            if(placeDora) {
+                placeDora = false
+                placeUradora = true
+                redrawDora()
+            }
+            else if(placeUradora) {
+                placeDora = false
+                placeUradora = false
+
+                binding.dora.root.visibility = View.GONE
+                binding.situation.root.visibility = View.VISIBLE
+                binding.situation.ivLastTile.setImageResource(hand.last.toDrawable(baseContext))
+            }
+        }
+        else if(binding.situation.root.visibility == View.VISIBLE) {
+            val personalSituation = PersonalSituation(
+                binding.situation.tsumo.isChecked,
+                binding.situation.ippatsu.isChecked,
+                binding.situation.riichi.isChecked,
+                binding.situation.doubleRiichi.isChecked,
+                binding.situation.chankan.isChecked,
+                binding.situation.rinshankaiho.isChecked,
+                seatWind.toTileEnum()
+            )
+
+            val generalSituation = GeneralSituation(
+                binding.situation.firstRound.isChecked,
+                binding.situation.houtei.isChecked,
+                prevalentWind.toTileEnum(),
+                dora.map { it.toTileEnum() }.toList(),
+                uradora.map { it.toTileEnum() }.toList()
+            )
+
+            hand.calculate(personalSituation, generalSituation)
+
+            Intent(this, HandResultActivity::class.java).also {
+                it.putExtra("score", hand.getPoints())
+                it.putExtra("han", hand.getHan())
+                it.putExtra("fu", hand.getFu())
+
+                val array = hand.getYaku().map { it.toString() }.toTypedArray()
+                it.putExtra("yaku", array)
+                startActivity(it)
             }
         }
     }
@@ -183,16 +222,27 @@ class HandCalculatorActivity : AppCompatActivity() {
     }
 
     private fun newTile(suit: Suit, value: Int) {
-        if(binding.situation.root.visibility == View.VISIBLE) {
-            if(dora.size >= 5) {
-                return
+        if(binding.dora.root.visibility == View.VISIBLE) {
+            if(placeDora) {
+                if(dora.size >= 5) {
+                    return
+                }
+                else {
+                    dora.add(MTile(suit, value))
+                    redrawDora()
+                }
             }
-            else {
-                dora.add(MTile(suit, value))
-                redrawDora()
+            else if(placeUradora) {
+                if(uradora.size >= 5) {
+                    return
+                }
+                else {
+                    uradora.add(MTile(suit, value))
+                    redrawDora()
+                }
             }
         }
-        else {
+        else if(binding.hand.root.visibility == View.VISIBLE){
             if (ponChii) {
                 currentMeld.add(MTile(suit, value))
 
@@ -224,31 +274,64 @@ class HandCalculatorActivity : AppCompatActivity() {
 
             redrawHand()
         }
+        else if(binding.situation.root.visibility == View.VISIBLE) {
+            hand.last = MTile(suit, value)
+            binding.situation.ivLastTile.setImageResource(hand.last.toDrawable(baseContext))
+        }
     }
 
     private fun deleteTile(index: Int) {
-        if(binding.situation.root.visibility == View.VISIBLE) {
+        if (hand.deleteTile(index)) {
+            redrawHand()
+        }
+    }
+
+    private fun deleteDora(index: Int) {
+        if(binding.situation.root.visibility == View.VISIBLE && placeDora) {
             if(index < dora.size) {
-                dora.removeAt(index)
+                uradora.removeAt(index)
                 redrawDora()
             }
         }
-        else {
-            if (hand.deleteTile(index)) {
-                redrawHand()
+    }
+
+    private fun deleteUradora(index: Int) {
+        if(binding.situation.root.visibility == View.VISIBLE && placeUradora) {
+            if(index < uradora.size) {
+                uradora.removeAt(index)
+                redrawDora()
             }
         }
     }
 
     private fun redrawDora() {
         for (i in 0 until 5) {
+            if(placeDora) {
+                findViewById<ImageView>(binding.dora.doraGroup.referencedIds[i]).setBackgroundResource(R.drawable.highlight)
+                findViewById<ImageView>(binding.dora.uradoraGroup.referencedIds[i]).setBackgroundResource(R.drawable.front)
+            }
+            else if(placeUradora) {
+                findViewById<ImageView>(binding.dora.doraGroup.referencedIds[i]).setBackgroundResource(R.drawable.front)
+                findViewById<ImageView>(binding.dora.uradoraGroup.referencedIds[i]).setBackgroundResource(R.drawable.highlight)
+            }
+
             if(i < dora.size) {
                 dora[i].toDrawable(baseContext).let {
-                    findViewById<ImageView>(binding.situation.DoraGroup.referencedIds[i]).setImageResource(it)
+                    findViewById<ImageView>(binding.dora.doraGroup.referencedIds[i]).setImageResource(it)
+
                 }
             }
             else {
-                findViewById<ImageView>(binding.situation.DoraGroup.referencedIds[i]).setImageResource(R.drawable.blank)
+                findViewById<ImageView>(binding.dora.doraGroup.referencedIds[i]).setImageResource(R.drawable.blank)
+            }
+
+            if(i < uradora.size) {
+                uradora[i].toDrawable(baseContext).let {
+                    findViewById<ImageView>(binding.dora.uradoraGroup.referencedIds[i]).setImageResource(it)
+                }
+            }
+            else {
+                findViewById<ImageView>(binding.dora.uradoraGroup.referencedIds[i]).setImageResource(R.drawable.blank)
             }
         }
     }

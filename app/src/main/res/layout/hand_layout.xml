@@ -139,6 +139,15 @@
         app:layout_constraintTop_toTopOf="@+id/ivHand12"
         app:srcCompat="@drawable/blank" />
 
+    <ImageView
+        android:id="@+id/ivHand14"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:background="@drawable/front"
+        app:layout_constraintStart_toStartOf="@+id/ivHand6"
+        app:layout_constraintTop_toTopOf="@+id/ivHand13"
+        app:srcCompat="@drawable/blank" />
+
     <Button
         android:id="@+id/btnPonChii"
         android:layout_width="120dp"
@@ -164,7 +173,7 @@
         android:id="@+id/HandGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="ivHand1,ivHand2,ivHand3,ivHand4,ivHand5,ivHand6,ivHand7,ivHand8,ivHand9,ivHand10,ivHand11,ivHand12,ivHand13" />
+        app:constraint_referenced_ids="ivHand1,ivHand2,ivHand3,ivHand4,ivHand5,ivHand6,ivHand7,ivHand8,ivHand9,ivHand10,ivHand11,ivHand12,ivHand13,ivHand14" />
 
     <Button
         android:id="@+id/btnCKan"
