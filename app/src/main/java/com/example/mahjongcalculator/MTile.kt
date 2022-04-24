@@ -72,7 +72,7 @@ class MTile(inputSuit: Suit, inputValue: Int) {
     }
 
     fun toTileEnum(): Tile {
-        when(suit) {
+        return when(suit) {
             Suit.Man -> Tile.valueOf("M$value")
             Suit.Pin -> Tile.valueOf("P$value")
             Suit.Sou -> Tile.valueOf("S$value")
@@ -92,7 +92,5 @@ class MTile(inputSuit: Suit, inputValue: Int) {
                 }
             }
         }
-
-        return Tile.M1
     }
 }

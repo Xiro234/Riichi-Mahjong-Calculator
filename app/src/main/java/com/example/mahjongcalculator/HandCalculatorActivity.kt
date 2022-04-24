@@ -189,14 +189,18 @@ class HandCalculatorActivity : AppCompatActivity() {
 
             hand.calculate(personalSituation, generalSituation)
 
-            Intent(this, HandResultActivity::class.java).also {
-                it.putExtra("score", hand.getPoints())
-                it.putExtra("han", hand.getHan())
-                it.putExtra("fu", hand.getFu())
+            Intent(this, HandResultActivity::class.java).also { intent ->
+                intent.putExtra("score", hand.getPoints())
+                intent.putExtra("han", hand.getHan())
+                intent.putExtra("fu", hand.getFu())
 
-                val array = hand.getYaku().map { it.toString() }.toTypedArray()
-                it.putExtra("yaku", array)
-                startActivity(it)
+                val yaku = hand.getYaku().map { it.toString() }.toTypedArray()
+                intent.putExtra("yaku", yaku)
+
+                val yakuman = hand.getYakuman().map { it.toString() }.toTypedArray()
+                intent.putExtra("yakuman", yakuman)
+
+                startActivity(intent)
             }
         }
     }

@@ -2,6 +2,7 @@ package com.example.mahjongcalculator
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mahjongcalculator.databinding.ActivityHandResultBinding
 
@@ -19,12 +20,23 @@ class HandResultActivity : AppCompatActivity() {
         binding.score.text = "Score: " + intent.getSerializableExtra("score").toString()
         binding.han.text = "Han: " + intent.getIntExtra("han", 0).toString()
         binding.fu.text = "Fu: " + intent.getIntExtra("fu", 0).toString()
-        val array = intent.getStringArrayExtra("yaku")
+        val yaku = intent.getStringArrayExtra("yaku")
+        val yakuman = intent.getStringArrayExtra("yakuman")
         var str = "No Yaku"
-        if(array != null) {
-            str = array.joinToString(", ") { it }
+        if(yaku != null) {
+            if(yaku.isNotEmpty()) {
+                str = yaku.joinToString(", ") { it }
+            }
         }
 
-        binding.yaku.text = "Yaku: $str"
+        if(yakuman != null) {
+            if(yakuman.isNotEmpty()) {
+                str = yakuman.joinToString(", ") { it }
+                binding.han.text = ""
+                binding.fu.text = ""
+            }
+        }
+
+        binding.yaku.text = "Yaku/Yakuman: $str"
     }
 }

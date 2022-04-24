@@ -6,6 +6,7 @@ import org.mahjong4j.Player
 import org.mahjong4j.Score
 import org.mahjong4j.hands.Hands
 import org.mahjong4j.yaku.normals.NormalYaku
+import org.mahjong4j.yaku.yakuman.Yakuman
 
 class HandContainer {
     var tiles = mutableListOf<MTile>()
@@ -69,8 +70,14 @@ class HandContainer {
 
     fun getValid(): Boolean {
         val array = getAsArray()
+        val mentsuList = melds.map { it.toMentsu() }
 
-        val hand = Hands(array, last.toTileEnum())
+        val hand = if(melds.isEmpty()) {
+            Hands(array, last.toTileEnum())
+        }
+        else {
+            Hands(array, last.toTileEnum(), mentsuList)
+        }
 
         return hand.canWin
     }
@@ -81,6 +88,10 @@ class HandContainer {
         } else {
             Score.SCORE0
         }
+    }
+
+    fun getYakuman(): List<Yakuman> {
+        return player.yakumanList
     }
 
     fun getHan(): Int {
@@ -117,8 +128,14 @@ class HandContainer {
     fun calculate(personalSituation: PersonalSituation, generalSituation: GeneralSituation) {
         if(getValid()) {
             val array = getAsArray()
+            val mentsuList = melds.map { it.toMentsu() }
 
-            val hand = Hands(array, last.toTileEnum())
+            val hand = if(melds.isEmpty()) {
+                Hands(array, last.toTileEnum())
+            }
+            else {
+                Hands(array, last.toTileEnum(), mentsuList)
+            }
 
             player = Player(hand, generalSituation, personalSituation)
 
