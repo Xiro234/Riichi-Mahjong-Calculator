@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivSeatWind1"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivSeatWind2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ton" />
+
+    <ImageView
+        android:id="@+id/ivPrevalentWind1"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPrevalentWind2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/ivSeatWind1"
+        android:src="@drawable/ton" />
+
+    <ImageView
+        android:id="@+id/ivPrevalentWind2"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPrevalentWind3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPrevalentWind1"
+        app:layout_constraintTop_toTopOf="@+id/ivPrevalentWind1"
+        android:src="@drawable/nan" />
+
+    <ImageView
+        android:id="@+id/ivPrevalentWind3"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivPrevalentWind4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPrevalentWind2"
+        app:layout_constraintTop_toTopOf="@+id/ivPrevalentWind2"
+        android:src="@drawable/shaa" />
+
+    <ImageView
+        android:id="@+id/ivPrevalentWind4"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivPrevalentWind3"
+        app:layout_constraintTop_toTopOf="@+id/ivPrevalentWind3"
+        android:src="@drawable/pei" />
+
+    <ImageView
+        android:id="@+id/ivSeatWind2"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivSeatWind3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSeatWind1"
+        app:layout_constraintTop_toTopOf="@+id/ivSeatWind1"
+        android:src="@drawable/nan" />
+
+    <ImageView
+        android:id="@+id/ivSeatWind3"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toStartOf="@+id/ivSeatWind4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSeatWind2"
+        app:layout_constraintTop_toTopOf="@+id/ivSeatWind2"
+        android:src="@drawable/shaa" />
+
+    <ImageView
+        android:id="@+id/ivSeatWind4"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:background="@drawable/front"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivSeatWind3"
+        app:layout_constraintTop_toTopOf="@+id/ivSeatWind3"
+        android:src="@drawable/pei" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/HandGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.32" />
+
+    <CheckBox
+        android:id="@+id/riichi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Riichi?"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/firstRound" />
+
+    <CheckBox
+        android:id="@+id/rinshankaiho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Rinshankaiho?"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/ippatsu"
+        app:layout_constraintTop_toTopOf="@+id/ippatsu" />
+
+    <CheckBox
+        android:id="@+id/chankan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Chankan?"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/tsumo"
+        app:layout_constraintTop_toTopOf="@+id/tsumo" />
+
+    <CheckBox
+        android:id="@+id/doubleRiichi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Double?"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/riichi"
+        app:layout_constraintTop_toTopOf="@+id/riichi" />
+
+    <CheckBox
+        android:id="@+id/ippatsu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Ippatsu?"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/tsumo" />
+
+    <CheckBox
+        android:id="@+id/tsumo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Tsumo?"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/riichi" />
+
+    <CheckBox
+        android:id="@+id/firstRound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="First round?"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/ivPrevalentWind1" />
+
+    <CheckBox
+        android:id="@+id/houtei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Houtei?"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/firstRound"
+        app:layout_constraintTop_toTopOf="@+id/firstRound" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Seat Wind:"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSeatWind1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivSeatWind1" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Round Wind:"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPrevalentWind1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivPrevalentWind1" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Round Conditions:"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/firstRound"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/firstRound" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/SeatWinds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivSeatWind1,ivSeatWind2,ivSeatWind3,ivSeatWind4" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/RoundWinds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivPrevalentWind1,ivPrevalentWind2,ivPrevalentWind3,ivPrevalentWind4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

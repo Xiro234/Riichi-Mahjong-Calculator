@@ -7,14 +7,19 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.example.mahjongcalculator.databinding.ActivityHandCalculatorBinding
 import org.mahjong4j.GeneralSituation
 import org.mahjong4j.PersonalSituation
 
 private lateinit var binding: ActivityHandCalculatorBinding
 
+private const val NUM_PAGES = 2
 
-class HandCalculatorActivity : AppCompatActivity() {
+class HandCalculatorActivity : FragmentActivity() {
     private var hand: HandContainer = HandContainer()
     private var oKan: Boolean = false
     private var cKan: Boolean = false
@@ -27,6 +32,8 @@ class HandCalculatorActivity : AppCompatActivity() {
     private var placeDora: Boolean = false
     private var placeUradora: Boolean = false
 
+    private lateinit var viewPager: ViewPager2
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHandCalculatorBinding.inflate(layoutInflater)
@@ -34,7 +41,11 @@ class HandCalculatorActivity : AppCompatActivity() {
         hand = HandContainer()
         setContentView(view)
 
-        //region MAN BUTTONS
+        viewPager = binding.pager
+        val pagerAdapter = HandCalculatorAdapter(this)
+        viewPager.adapter = pagerAdapter
+
+        /*//region MAN BUTTONS
         binding.calc.ivMan1.setOnClickListener { newTile(Suit.Man, 1) }
         binding.calc.ivMan2.setOnClickListener { newTile(Suit.Man, 2) }
         binding.calc.ivMan3.setOnClickListener { newTile(Suit.Man, 3) }
@@ -144,10 +155,10 @@ class HandCalculatorActivity : AppCompatActivity() {
             if(!ponChii) {
                 currentMeld = mutableListOf()
             }
-        }
+        }*/
     }
 
-    private fun next() {
+    /*private fun next() {
         if(binding.hand.root.visibility == View.VISIBLE) {
             binding.hand.root.visibility = View.GONE
             binding.dora.root.visibility = View.VISIBLE
@@ -378,5 +389,18 @@ class HandCalculatorActivity : AppCompatActivity() {
             }
         }
 
+    }*/
+
+    private inner class HandCalculatorAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
+        override fun getItemCount(): Int = NUM_PAGES
+
+        override fun createFragment(position: Int): Fragment {
+            return when(position) {
+                0 -> HandFragment()
+                1 -> SituationFragment()
+                else -> Fragment()
+            }
+
+        }
     }
 }
