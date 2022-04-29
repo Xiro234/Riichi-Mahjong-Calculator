@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/handFragment">
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/doraGroup"
@@ -117,6 +118,7 @@
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/uradoraGroup"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="ivUradora1,ivUradora2,ivUradora3,ivUradora4,ivUradora5"
@@ -670,7 +672,7 @@
         android:id="@+id/HandGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:constraint_referenced_ids="ivHand1,ivHand2,ivHand3,ivHand4,ivHand5,ivHand6,ivHand7,ivHand8,ivHand9,ivHand10,ivHand11,ivHand12,ivHand13,ivHand14" />
 
     <ToggleButton
