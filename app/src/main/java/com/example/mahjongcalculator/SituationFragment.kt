@@ -15,7 +15,8 @@ class SituationFragment : Fragment() {
 
     private lateinit var binding: FragmentSituationBinding
     private lateinit var listener: SituationListener
-
+    private var seatWind: MTile = MTile(Suit.Wind, 0)
+    private var prevalentWind: MTile = MTile(Suit.Wind, 0)
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -34,22 +35,30 @@ class SituationFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentSituationBinding.inflate(inflater, container, false)
 
-        binding.ivSeatWind1.setOnClickListener { listener.seatWindPressed(1) }
-        binding.ivSeatWind2.setOnClickListener { listener.seatWindPressed(2) }
-        binding.ivSeatWind3.setOnClickListener { listener.seatWindPressed(3) }
-        binding.ivSeatWind4.setOnClickListener { listener.seatWindPressed(4) }
+        binding.ivSeatWind1.setOnClickListener { setSeatWind(1) }
+        binding.ivSeatWind2.setOnClickListener { setSeatWind(2) }
+        binding.ivSeatWind3.setOnClickListener { setSeatWind(3) }
+        binding.ivSeatWind4.setOnClickListener { setSeatWind(4) }
 
-        binding.ivPrevalentWind1.setOnClickListener { listener.seatWindPressed(1) }
-        binding.ivPrevalentWind2.setOnClickListener { listener.seatWindPressed(2) }
-        binding.ivPrevalentWind3.setOnClickListener { listener.seatWindPressed(3) }
-        binding.ivPrevalentWind4.setOnClickListener { listener.seatWindPressed(4) }
+        binding.ivPrevalentWind1.setOnClickListener { setPrevalentWind(1) }
+        binding.ivPrevalentWind2.setOnClickListener { setPrevalentWind(2) }
+        binding.ivPrevalentWind3.setOnClickListener { setPrevalentWind(3) }
+        binding.ivPrevalentWind4.setOnClickListener { setPrevalentWind(4) }
 
         return binding.root
     }
 
     interface SituationListener {
-        fun seatWindPressed(num: Int)
-        fun prevelantWindPressed(num: Int)
+    }
+
+    private fun setSeatWind(value: Int) {
+        seatWind = MTile(Suit.Wind, value)
+        redrawSeatWind(value - 1)
+    }
+
+    private fun setPrevalentWind(value: Int) {
+        prevalentWind = MTile(Suit.Wind, value)
+        redrawPrevalentWind(value - 1)
     }
 
     fun redrawSeatWind(value: Int) {
@@ -57,7 +66,7 @@ class SituationFragment : Fragment() {
         view?.findViewById<ImageView>(binding.SeatWinds.referencedIds[value])?.setBackgroundResource(R.drawable.highlight)
     }
 
-    fun redrawPrevelantWind(value: Int) {
+    fun redrawPrevalentWind(value: Int) {
         binding.RoundWinds.referencedIds.forEach { view?.findViewById<ImageView>(it)?.setBackgroundResource(R.drawable.front) }
         view?.findViewById<ImageView>(binding.RoundWinds.referencedIds[value])?.setBackgroundResource(R.drawable.highlight)
     }

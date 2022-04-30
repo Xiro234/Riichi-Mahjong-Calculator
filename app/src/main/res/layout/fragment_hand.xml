@@ -2,15 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/handFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/handFragment">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/doraGroup"
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:constraint_referenced_ids="ivDora1,ivDora2,ivDora3,ivDora4,ivDora5"
         tools:layout_editor_absoluteY="176dp" />
 
@@ -118,9 +118,9 @@
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/uradoraGroup"
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:constraint_referenced_ids="ivUradora1,ivUradora2,ivUradora3,ivUradora4,ivUradora5"
         tools:layout_editor_absoluteY="176dp" />
 
@@ -645,6 +645,17 @@
         app:layout_constraintStart_toStartOf="@+id/ivHand6"
         app:layout_constraintTop_toTopOf="@+id/ivHand13" />
 
+    <ImageView
+        android:id="@+id/ivLastTile"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/front"
+        android:src="@drawable/blank"
+        app:layout_constraintBottom_toTopOf="@+id/btnUradora"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ToggleButton
         android:id="@+id/btnPonChii"
         android:layout_width="120dp"
@@ -663,6 +674,7 @@
         android:layout_height="50dp"
         android:text="Kan"
         android:textOff="Kan"
+        android:textOn="Kan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnCKan"
@@ -695,33 +707,52 @@
         app:layout_constraintGuide_percent="0.7" />
 
     <ToggleButton
-        android:id="@+id/toggleButton"
+        android:id="@+id/btnUradora"
         android:layout_width="117dp"
         android:layout_height="47dp"
         android:text="ToggleButton"
+        android:textOff="Uradora"
+        android:textOn="Uradora"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton3"
-        app:layout_constraintTop_toTopOf="@+id/toggleButton3" />
+        app:layout_constraintStart_toEndOf="@+id/btnDora"
+        app:layout_constraintTop_toTopOf="@+id/btnDora" />
 
     <ToggleButton
-        android:id="@+id/toggleButton3"
+        android:id="@+id/btnDora"
         android:layout_width="117dp"
         android:layout_height="47dp"
-        android:text="ToggleButton"
-        app:layout_constraintEnd_toStartOf="@+id/toggleButton"
+        android:text="Dora"
+        android:textOff="Dora"
+        android:textOn="Dora"
+        app:layout_constraintEnd_toStartOf="@+id/btnUradora"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton2"
-        app:layout_constraintTop_toTopOf="@+id/toggleButton2" />
+        app:layout_constraintStart_toEndOf="@+id/btnHand"
+        app:layout_constraintTop_toTopOf="@+id/btnHand" />
 
     <ToggleButton
-        android:id="@+id/toggleButton2"
+        android:id="@+id/btnLastTile"
+        android:layout_width="117dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="16dp"
+        android:text="Last Tile"
+        android:textOff="Last Tile"
+        android:textOn="Last Tile"
+        app:layout_constraintBottom_toBottomOf="@+id/ivLastTile"
+        app:layout_constraintEnd_toStartOf="@+id/ivLastTile"
+        app:layout_constraintTop_toTopOf="@+id/ivLastTile"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ToggleButton
+        android:id="@+id/btnHand"
         android:layout_width="117dp"
         android:layout_height="47dp"
         android:layout_marginBottom="12dp"
-        android:text="ToggleButton"
+        android:text="Hand"
+        android:textOff="Hand"
+        android:textOn="Hand"
         app:layout_constraintBottom_toTopOf="@+id/btnPonChii"
-        app:layout_constraintEnd_toStartOf="@+id/toggleButton3"
+        app:layout_constraintEnd_toStartOf="@+id/btnDora"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
