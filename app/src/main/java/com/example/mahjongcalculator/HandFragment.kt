@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import com.example.mahjongcalculator.databinding.FragmentHandBinding
+import com.google.android.material.tabs.TabLayout
 
 class HandFragment : Fragment() {
     private var hand: HandContainer = HandContainer()
@@ -113,11 +114,74 @@ class HandFragment : Fragment() {
         binding.ivUradora5.setOnClickListener { deleteUradora(4) }
         //
 
+        binding.tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                if (tab != null) {
+                    setVisibility(tab)
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                if (tab != null) {
+                    unsetVisibility(tab)
+                }
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) { }
+        })
+
+        binding.btnPonChii.setOnClickListener {
+            if(binding.btnPonChii.isChecked) {
+                binding.btnOKan.isChecked = false
+                binding.btnCKan.isChecked = false
+            }
+            currentMeld = mutableListOf()
+        }
+        binding.btnOKan.setOnClickListener {
+            if(binding.btnOKan.isChecked) {
+                binding.btnPonChii.isChecked = false
+                binding.btnCKan.isChecked = false
+            }
+            currentMeld = mutableListOf()
+        }
+        binding.btnCKan.setOnClickListener {
+            if(binding.btnCKan.isChecked) {
+                binding.btnOKan.isChecked = false
+                binding.btnPonChii.isChecked = false
+            }
+            currentMeld = mutableListOf()
+        }
+
+
         return binding.root
     }
 
     interface HandListener {
         fun getHand(hand: HandContainer): HandContainer
+    }
+
+    private fun setVisibility(tab: TabLayout.Tab?) {
+        if(tab == binding.tabLayout.getTabAt(0)) {
+            binding.HandGroup.visibility = View.VISIBLE
+        }
+        else if(tab == binding.tabLayout.getTabAt(1)) {
+            binding.doraGroup.visibility = View.VISIBLE
+        }
+        else if(tab == binding.tabLayout.getTabAt(2)) {
+            binding.uradoraGroup.visibility = View.VISIBLE
+        }
+    }
+
+    private fun unsetVisibility(tab: TabLayout.Tab?){
+        if(tab == binding.tabLayout.getTabAt(0)) {
+            binding.HandGroup.visibility = View.GONE
+        }
+        else if(tab == binding.tabLayout.getTabAt(1)) {
+            binding.doraGroup.visibility = View.GONE
+        }
+        else if(tab == binding.tabLayout.getTabAt(2)) {
+            binding.uradoraGroup.visibility = View.GONE
+        }
     }
 
     private fun deleteTile(index: Int) {
@@ -127,16 +191,16 @@ class HandFragment : Fragment() {
     }
 
     private fun deleteDora(index: Int) {
-        if(binding.btnDora.isChecked) {
+        if(binding.tabLayout.getTabAt(1)?.isSelected == true) {
             if(index < dora.size) {
-                uradora.removeAt(index)
+                dora.removeAt(index)
                 redrawDora()
             }
         }
     }
 
     private fun deleteUradora(index: Int) {
-        if(binding.btnUradora.isChecked) {
+        if(binding.tabLayout.getTabAt(2)?.isSelected == true) {
             if(index < uradora.size) {
                 uradora.removeAt(index)
                 redrawDora()
@@ -146,19 +210,9 @@ class HandFragment : Fragment() {
 
     private fun redrawDora() {
         for (i in 0 until 5) {
-            if(binding.btnDora.isChecked) {
-                view?.findViewById<ImageView>(binding.doraGroup.referencedIds[i])?.setBackgroundResource(R.drawable.highlight)
-                view?.findViewById<ImageView>(binding.uradoraGroup.referencedIds[i])?.setBackgroundResource(R.drawable.front)
-            }
-            else if(binding.btnUradora.isChecked) {
-                view?.findViewById<ImageView>(binding.doraGroup.referencedIds[i])?.setBackgroundResource(R.drawable.front)
-                view?.findViewById<ImageView>(binding.uradoraGroup.referencedIds[i])?.setBackgroundResource(R.drawable.highlight)
-            }
-
             if(i < dora.size) {
                 dora[i].toDrawable(requireActivity().baseContext).let {
                     view?.findViewById<ImageView>(binding.doraGroup.referencedIds[i])?.setImageResource(it)
-
                 }
             }
             else {
@@ -177,8 +231,12 @@ class HandFragment : Fragment() {
     }
 
     private fun newTile(suit: Suit, value: Int) {
-        if(binding.btnDora.isChecked || binding.btnUradora.isChecked) {
-            if(binding.btnDora.isChecked) {
+        if(binding.btnLastTile.isChecked) {
+            hand.last = MTile(suit, value)
+            binding.ivLastTile.setImageResource(hand.last.toDrawable(requireActivity().baseContext))
+        }
+        else if(binding.tabLayout.getTabAt(1)?.isSelected == true || binding.tabLayout.getTabAt(2)?.isSelected == true) {
+            if(binding.tabLayout.getTabAt(1)?.isSelected == true) {
                 if(dora.size >= 5) {
                     return
                 }
@@ -187,7 +245,7 @@ class HandFragment : Fragment() {
                     redrawDora()
                 }
             }
-            else if(binding.btnUradora.isChecked) {
+            else if(binding.tabLayout.getTabAt(2)?.isSelected == true) {
                 if(uradora.size >= 5) {
                     return
                 }
@@ -197,10 +255,10 @@ class HandFragment : Fragment() {
                 }
             }
         }
-        else if(binding.btnHand.isChecked){
+        else if(binding.tabLayout.getTabAt(0)?.isSelected == true){
             if (binding.btnPonChii.isChecked) {
                 currentMeld.add(MTile(suit, value))
-
+                println(currentMeld.size)
                 if (currentMeld.size == 3) {
                     if (!hand.addMeld(currentMeld)) {
                         Toast.makeText(
@@ -220,15 +278,12 @@ class HandFragment : Fragment() {
                     }
                     currentMeld = mutableListOf()
                 }
-            } else {
+            }
+            else {
                 hand.addTile(suit, value)
             }
 
             redrawHand()
-        }
-        else if(binding.btnLastTile.isChecked) {
-            hand.last = MTile(suit, value)
-            //situationBinding.ivLastTile?.setImageResource(hand.last.toDrawable(activity.baseContext))
         }
     }
 
@@ -251,7 +306,7 @@ class HandFragment : Fragment() {
 
             if(it.tiles.size == 4) {
                 for(k in it.tiles.indices) {
-                    if(k == 0 || k == 4 && it.closed) {
+                    if((k == 0 || k == 3) && it.closed) {
                         view?.findViewById<ImageView>(binding.HandGroup.referencedIds[hand.tiles.size + k + skip])?.setImageResource(R.drawable.back)
                     }
                     else {
