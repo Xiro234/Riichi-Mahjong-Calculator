@@ -11,12 +11,12 @@ import org.mahjong4j.yaku.yakuman.Yakuman
 class HandContainer {
     var tiles = mutableListOf<MTile>()
     var melds: MutableList<Meld> = mutableListOf()
-    val maxNumOfTiles = 14
+    val maxNumOfTiles = 18
     private lateinit var player: Player
     var last = MTile(Suit.Man, 1)
 
     fun addTile(suit: Suit, value: Int): Boolean {
-        if (maxNumOfTiles == getSize()) {
+        if (14 == getSize()) {
             return false
         }
 
@@ -25,6 +25,8 @@ class HandContainer {
     }
 
     fun addMeld(currentMeld: List<MTile>, closed: Boolean = false): Boolean {
+        println(checkIfMeldFits(currentMeld))
+
         return if(checkIfMeldFits(currentMeld)) {
             melds.add(Meld(currentMeld, closed))
             true
@@ -107,17 +109,17 @@ class HandContainer {
     }
 
     fun getSize(): Int {
-        return tiles.size + melds.sumOf { it.tiles.size }
+        return tiles.size + melds.size * 3
     }
 
     private fun checkIfMeldFits(currentMeld: List<MTile>): Boolean {
         return if(currentMeld.size == 4) {
-            currentMeld[0] == currentMeld[1] && currentMeld[1] == currentMeld[2] && currentMeld[2] == currentMeld[3] && getSize() <= 9
+            currentMeld[0] == currentMeld[1] && currentMeld[1] == currentMeld[2] && currentMeld[2] == currentMeld[3] && getSize() <= 11
         } else if(currentMeld.size == 3) {
             if(currentMeld.all { it.suit != Suit.Dragon && it.suit != Suit.Wind }) {
-                (currentMeld[0].isBelow(currentMeld[1]) && currentMeld[1].isBelow(currentMeld[2]) && getSize() <= 10) || (currentMeld[0] == currentMeld[1] && currentMeld[1] == currentMeld[2] && getSize() <= 10)
+                (currentMeld[0].isBelow(currentMeld[1]) && currentMeld[1].isBelow(currentMeld[2]) && getSize() <= 11) || (currentMeld[0] == currentMeld[1] && currentMeld[1] == currentMeld[2] && getSize() <= 11)
             } else {
-                currentMeld[0] == currentMeld[1] && currentMeld[1] == currentMeld[2] && getSize() <= 10
+                currentMeld[0] == currentMeld[1] && currentMeld[1] == currentMeld[2] && getSize() <= 11
             }
         }
         else {

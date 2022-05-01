@@ -1,6 +1,7 @@
 package com.example.mahjongcalculator
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
@@ -46,5 +47,15 @@ class HandResultActivity : AppCompatActivity() {
         }
 
         binding.yaku.text = str
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Intent(
+            applicationContext,
+            HandCalculatorActivity::class.java
+        ).also { intent ->
+            startActivity(intent)
+        }
     }
 }

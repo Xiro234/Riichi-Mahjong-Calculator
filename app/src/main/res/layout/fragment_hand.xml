@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/handFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:visibility="visible">
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/doraGroup"
@@ -18,7 +20,7 @@
         android:id="@+id/ivDora1"
         android:layout_width="39dp"
         android:layout_height="52dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
@@ -69,8 +71,8 @@
         android:id="@+id/ivUradora1"
         android:layout_width="39dp"
         android:layout_height="52dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
         app:layout_constraintStart_toStartOf="parent"
@@ -505,13 +507,14 @@
         android:id="@+id/ivHand1"
         android:layout_width="39dp"
         android:layout_height="52dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
-        app:layout_constraintEnd_toStartOf="@+id/ivHand2"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand2"
@@ -519,10 +522,12 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/ivHand3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand1"
-        app:layout_constraintTop_toTopOf="@+id/ivHand1" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand1"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand3"
@@ -530,10 +535,12 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/ivHand4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand2"
-        app:layout_constraintTop_toTopOf="@+id/ivHand2" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand2"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand4"
@@ -541,10 +548,12 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/ivHand5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand3"
-        app:layout_constraintTop_toTopOf="@+id/ivHand3" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand3"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand5"
@@ -552,10 +561,12 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/ivHand6"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand4"
-        app:layout_constraintTop_toTopOf="@+id/ivHand4" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand4"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand6"
@@ -563,10 +574,12 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/ivHand7"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand5"
-        app:layout_constraintTop_toTopOf="@+id/ivHand5" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand5"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand7"
@@ -574,10 +587,12 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/ivHand8"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand6"
-        app:layout_constraintTop_toTopOf="@+id/ivHand6" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand6"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand8"
@@ -585,10 +600,12 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHand7"
-        app:layout_constraintTop_toTopOf="@+id/ivHand7" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand7"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand9"
@@ -597,8 +614,10 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/ivHand1"
-        app:layout_constraintTop_toBottomOf="@+id/ivHand1" />
+        app:layout_constraintTop_toBottomOf="@+id/ivHand1"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand10"
@@ -606,8 +625,10 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/ivHand2"
-        app:layout_constraintTop_toTopOf="@+id/ivHand9" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand9"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand11"
@@ -615,8 +636,10 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/ivHand3"
-        app:layout_constraintTop_toTopOf="@+id/ivHand10" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand10"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand12"
@@ -624,8 +647,10 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/ivHand4"
-        app:layout_constraintTop_toTopOf="@+id/ivHand11" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand11"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand13"
@@ -633,8 +658,10 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/ivHand5"
-        app:layout_constraintTop_toTopOf="@+id/ivHand12" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand12"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHand14"
@@ -642,8 +669,55 @@
         android:layout_height="52dp"
         android:background="@drawable/front"
         android:src="@drawable/blank"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/ivHand6"
-        app:layout_constraintTop_toTopOf="@+id/ivHand13" />
+        app:layout_constraintTop_toTopOf="@+id/ivHand13"
+        tools:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/ivHand15"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:background="@drawable/front"
+        android:src="@drawable/blank"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/ivHand7"
+        app:layout_constraintTop_toTopOf="@+id/ivHand14"
+        tools:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/ivHand16"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:background="@drawable/front"
+        android:src="@drawable/blank"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/ivHand8"
+        app:layout_constraintTop_toTopOf="@+id/ivHand15"
+        tools:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/ivHand17"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/front"
+        android:src="@drawable/blank"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/ivHand9"
+        app:layout_constraintTop_toBottomOf="@+id/ivHand9"
+        tools:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/ivHand18"
+        android:layout_width="39dp"
+        android:layout_height="52dp"
+        android:background="@drawable/front"
+        android:src="@drawable/blank"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/ivHand10"
+        app:layout_constraintTop_toTopOf="@+id/ivHand17"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivLastTile"
@@ -679,13 +753,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnCKan"
         app:layout_constraintTop_toTopOf="@+id/btnCKan" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/HandGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        app:constraint_referenced_ids="ivHand1,ivHand2,ivHand3,ivHand4,ivHand5,ivHand6,ivHand7,ivHand8,ivHand9,ivHand10,ivHand11,ivHand12,ivHand13,ivHand14" />
 
     <ToggleButton
         android:id="@+id/btnCKan"
@@ -744,5 +811,12 @@
             android:layout_height="wrap_content"
             android:text="Uradora" />
     </com.google.android.material.tabs.TabLayout>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/HandGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="ivHand1,ivHand2,ivHand3,ivHand4,ivHand5,ivHand6,ivHand7,ivHand8,ivHand9,ivHand10,ivHand11,ivHand12,ivHand13,ivHand14,ivHand15,ivHand16,ivHand17,ivHand18" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

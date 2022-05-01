@@ -1,6 +1,4 @@
 package com.example.mahjongcalculator
-
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -22,6 +20,18 @@ class HandFragment : Fragment() {
     private var uradora: MutableList<MTile> = mutableListOf()
 
     private lateinit var binding: FragmentHandBinding
+
+    override fun onStart() {
+        super.onStart()
+        redrawHand()
+        redrawDora()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        redrawHand()
+        redrawDora()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -91,6 +101,12 @@ class HandFragment : Fragment() {
         binding.ivHand11.setOnClickListener { deleteTile(10) }
         binding.ivHand12.setOnClickListener { deleteTile(11) }
         binding.ivHand13.setOnClickListener { deleteTile(12) }
+        binding.ivHand14.setOnClickListener { deleteTile(13) }
+        binding.ivHand15.setOnClickListener { deleteTile(14) }
+        binding.ivHand16.setOnClickListener { deleteTile(15) }
+        binding.ivHand17.setOnClickListener { deleteTile(16) }
+        binding.ivHand18.setOnClickListener { deleteTile(17) }
+
         //endregion
 
         //region DORA BUTTONS
@@ -145,7 +161,6 @@ class HandFragment : Fragment() {
             currentMeld = mutableListOf()
         }
 
-
         return binding.root
     }
 
@@ -168,8 +183,8 @@ class HandFragment : Fragment() {
             uradora.map { it.toTileEnum() }.toList()
         )
 
+        try {
         if(hand.calculate(personalSituation, generalSituation)) {
-
             Intent(
                 requireContext().applicationContext,
                 HandResultActivity::class.java
@@ -193,18 +208,28 @@ class HandFragment : Fragment() {
                 "Hand is invalid.",
                 Toast.LENGTH_SHORT
             ).show()
+        } }
+        catch(e: org.mahjong4j.MahjongTileOverFlowException) {
+            Toast.makeText(
+                activity,
+                "Hand is invalid.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
     private fun setVisibility(tab: TabLayout.Tab?) {
         if(tab == binding.tabLayout.getTabAt(0)) {
-            binding.HandGroup.visibility = View.VISIBLE
+            binding.HandGroup.visibility = View.INVISIBLE
+            redrawHand()
         }
         else if(tab == binding.tabLayout.getTabAt(1)) {
             binding.doraGroup.visibility = View.VISIBLE
+            redrawDora()
         }
         else if(tab == binding.tabLayout.getTabAt(2)) {
             binding.uradoraGroup.visibility = View.VISIBLE
+            redrawDora()
         }
     }
 
@@ -331,9 +356,11 @@ class HandFragment : Fragment() {
             if(i < hand.tiles.size) {
                 hand.tiles[i].toDrawable(requireActivity().baseContext).let {
                     view?.findViewById<ImageView>(binding.HandGroup.referencedIds[i])?.setImageResource(it)
+                    view?.findViewById<ImageView>(binding.HandGroup.referencedIds[i])?.visibility = View.VISIBLE
                 }
             }
             else {
+                view?.findViewById<ImageView>(binding.HandGroup.referencedIds[i])?.visibility = View.INVISIBLE
                 view?.findViewById<ImageView>(binding.HandGroup.referencedIds[i])?.setImageResource(R.drawable.blank)
             }
         }
@@ -347,9 +374,11 @@ class HandFragment : Fragment() {
                 for(k in it.tiles.indices) {
                     if((k == 0 || k == 3) && it.closed) {
                         view?.findViewById<ImageView>(binding.HandGroup.referencedIds[hand.tiles.size + k + skip])?.setImageResource(R.drawable.back)
+                        view?.findViewById<ImageView>(binding.HandGroup.referencedIds[hand.tiles.size + k + skip])?.visibility = View.VISIBLE
                     }
                     else {
                         view?.findViewById<ImageView>(binding.HandGroup.referencedIds[hand.tiles.size + k + skip])?.setImageResource(it.tiles[k].toDrawable(requireActivity().baseContext))
+                        view?.findViewById<ImageView>(binding.HandGroup.referencedIds[hand.tiles.size + k + skip])?.visibility = View.VISIBLE
                     }
                 }
 
@@ -358,6 +387,8 @@ class HandFragment : Fragment() {
             else if(it.tiles.size == 3) {
                 for(k in it.tiles.indices) {
                     view?.findViewById<ImageView>(binding.HandGroup.referencedIds[hand.tiles.size + k + skip])?.setImageResource(it.tiles[k].toDrawable(requireActivity().baseContext))
+                    view?.findViewById<ImageView>(binding.HandGroup.referencedIds[hand.tiles.size + k + skip])?.visibility = View.VISIBLE
+
                 }
 
                 numOfThree++
