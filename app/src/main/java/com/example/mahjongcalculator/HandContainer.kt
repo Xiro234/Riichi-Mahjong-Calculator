@@ -125,7 +125,7 @@ class HandContainer {
         }
     }
 
-    fun calculate(personalSituation: PersonalSituation, generalSituation: GeneralSituation) {
+    fun calculate(personalSituation: PersonalSituation, generalSituation: GeneralSituation): Boolean {
         if(getValid()) {
             val array = getAsArray()
             val mentsuList = melds.map { it.toMentsu() }
@@ -140,6 +140,8 @@ class HandContainer {
             player = Player(hand, generalSituation, personalSituation)
 
             player.calculate()
+            return true
         }
+        return false
     }
 }

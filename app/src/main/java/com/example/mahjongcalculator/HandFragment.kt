@@ -168,20 +168,31 @@ class HandFragment : Fragment() {
             uradora.map { it.toTileEnum() }.toList()
         )
 
-        hand.calculate(personalSituation, generalSituation)
+        if(hand.calculate(personalSituation, generalSituation)) {
 
-        Intent(requireContext().applicationContext, HandResultActivity::class.java).also { intent ->
-            intent.putExtra("score", hand.getPoints())
-            intent.putExtra("han", hand.getHan())
-            intent.putExtra("fu", hand.getFu())
+            Intent(
+                requireContext().applicationContext,
+                HandResultActivity::class.java
+            ).also { intent ->
+                intent.putExtra("score", hand.getPoints())
+                intent.putExtra("han", hand.getHan())
+                intent.putExtra("fu", hand.getFu())
 
-            val yaku = hand.getYaku().map { it.toString() }.toTypedArray()
-            intent.putExtra("yaku", yaku)
+                val yaku = hand.getYaku().map { it.toString() }.toTypedArray()
+                intent.putExtra("yaku", yaku)
 
-            val yakuman = hand.getYakuman().map { it.toString() }.toTypedArray()
-            intent.putExtra("yakuman", yakuman)
+                val yakuman = hand.getYakuman().map { it.toString() }.toTypedArray()
+                intent.putExtra("yakuman", yakuman)
 
-            startActivity(intent)
+                startActivity(intent)
+            }
+        }
+        else {
+            Toast.makeText(
+                activity,
+                "Hand is invalid.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -305,7 +316,10 @@ class HandFragment : Fragment() {
                 }
             }
             else {
-                hand.addTile(suit, value)
+                if(hand.addTile(suit, value)) {
+                    hand.last = MTile(suit, value)
+                    binding.ivLastTile.setImageResource(hand.last.toDrawable(requireActivity().baseContext))
+                }
             }
 
             redrawHand()

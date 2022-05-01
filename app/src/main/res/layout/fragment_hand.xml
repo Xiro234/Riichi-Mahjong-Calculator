@@ -20,7 +20,7 @@
         android:layout_height="52dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/highlight"
+        android:background="@drawable/front"
         android:src="@drawable/blank"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
         android:layout_width="39dp"
         android:layout_height="52dp"
         android:layout_marginStart="12dp"
-        android:background="@drawable/highlight"
+        android:background="@drawable/front"
         android:src="@drawable/blank"
         app:layout_constraintStart_toEndOf="@+id/ivDora4"
         app:layout_constraintTop_toTopOf="@+id/ivDora4" />
@@ -40,7 +40,7 @@
         android:layout_width="39dp"
         android:layout_height="52dp"
         android:layout_marginStart="12dp"
-        android:background="@drawable/highlight"
+        android:background="@drawable/front"
         android:src="@drawable/blank"
         app:layout_constraintStart_toEndOf="@+id/ivDora3"
         app:layout_constraintTop_toTopOf="@+id/ivDora3" />
@@ -50,7 +50,7 @@
         android:layout_width="39dp"
         android:layout_height="52dp"
         android:layout_marginStart="12dp"
-        android:background="@drawable/highlight"
+        android:background="@drawable/front"
         android:src="@drawable/blank"
         app:layout_constraintStart_toEndOf="@+id/ivDora1"
         app:layout_constraintTop_toTopOf="@+id/ivDora1" />
@@ -60,7 +60,7 @@
         android:layout_width="39dp"
         android:layout_height="52dp"
         android:layout_marginStart="12dp"
-        android:background="@drawable/highlight"
+        android:background="@drawable/front"
         android:src="@drawable/blank"
         app:layout_constraintStart_toEndOf="@+id/ivDora2"
         app:layout_constraintTop_toTopOf="@+id/ivDora2" />
@@ -652,7 +652,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/front"
-        android:src="@drawable/blank"
+        android:src="@drawable/man1"
         app:layout_constraintBottom_toTopOf="@+id/tabLayout"
         app:layout_constraintEnd_toEndOf="parent" />
 
