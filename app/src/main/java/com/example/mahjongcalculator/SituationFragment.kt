@@ -10,6 +10,7 @@ import android.widget.ImageView
 import com.example.mahjongcalculator.databinding.ActivityHandCalculatorBinding
 import com.example.mahjongcalculator.databinding.FragmentHandBinding
 import com.example.mahjongcalculator.databinding.FragmentSituationBinding
+import org.mahjong4j.tile.Tile
 
 class SituationFragment : Fragment() {
 
@@ -45,10 +46,24 @@ class SituationFragment : Fragment() {
         binding.ivPrevalentWind3.setOnClickListener { setPrevalentWind(3) }
         binding.ivPrevalentWind4.setOnClickListener { setPrevalentWind(4) }
 
+        binding.btnCalc.setOnClickListener { listener.calculate(
+            seatWind.toTileEnum(),
+            prevalentWind.toTileEnum(),
+            binding.tsumo.isChecked,
+            binding.ippatsu.isChecked,
+            binding.riichi.isChecked,
+            binding.doubleRiichi.isChecked,
+            binding.chankan.isChecked,
+            binding.rinshankaiho.isChecked,
+            binding.firstRound.isChecked,
+            binding.houtei.isChecked
+        ) }
+
         return binding.root
     }
 
     interface SituationListener {
+        fun calculate(seatWind: Tile, prevalentWind: Tile, tsumo: Boolean, ippatsu: Boolean, riichi: Boolean, doubleRiichi: Boolean, chankan: Boolean, rinshankaiho: Boolean, firstRound: Boolean, houtei: Boolean)
     }
 
     private fun setSeatWind(value: Int) {

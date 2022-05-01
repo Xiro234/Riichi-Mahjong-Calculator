@@ -1,6 +1,7 @@
 package com.example.mahjongcalculator
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,9 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.example.mahjongcalculator.databinding.FragmentHandBinding
 import com.google.android.material.tabs.TabLayout
+import org.mahjong4j.GeneralSituation
+import org.mahjong4j.PersonalSituation
+import org.mahjong4j.tile.Tile
 
 class HandFragment : Fragment() {
     private var hand: HandContainer = HandContainer()
@@ -18,17 +22,6 @@ class HandFragment : Fragment() {
     private var uradora: MutableList<MTile> = mutableListOf()
 
     private lateinit var binding: FragmentHandBinding
-    private lateinit var listener: HandListener
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if(context is HandListener) {
-            listener = context
-        }
-        else {
-            throw ClassCastException("$context must implement SituationListener")
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -114,7 +107,7 @@ class HandFragment : Fragment() {
         binding.ivUradora5.setOnClickListener { deleteUradora(4) }
         //
 
-        binding.tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 if (tab != null) {
                     setVisibility(tab)
@@ -127,25 +120,25 @@ class HandFragment : Fragment() {
                 }
             }
 
-            override fun onTabReselected(tab: TabLayout.Tab?) { }
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
 
         binding.btnPonChii.setOnClickListener {
-            if(binding.btnPonChii.isChecked) {
+            if (binding.btnPonChii.isChecked) {
                 binding.btnOKan.isChecked = false
                 binding.btnCKan.isChecked = false
             }
             currentMeld = mutableListOf()
         }
         binding.btnOKan.setOnClickListener {
-            if(binding.btnOKan.isChecked) {
+            if (binding.btnOKan.isChecked) {
                 binding.btnPonChii.isChecked = false
                 binding.btnCKan.isChecked = false
             }
             currentMeld = mutableListOf()
         }
         binding.btnCKan.setOnClickListener {
-            if(binding.btnCKan.isChecked) {
+            if (binding.btnCKan.isChecked) {
                 binding.btnOKan.isChecked = false
                 binding.btnPonChii.isChecked = false
             }
@@ -156,8 +149,40 @@ class HandFragment : Fragment() {
         return binding.root
     }
 
-    interface HandListener {
-        fun getHand(hand: HandContainer): HandContainer
+    fun calculate(seatWind: Tile, prevalentWind: Tile, tsumo: Boolean, ippatsu: Boolean, riichi: Boolean, doubleRiichi: Boolean, chankan: Boolean, rinshankaiho: Boolean, firstRound: Boolean, houtei: Boolean) {
+        val personalSituation = PersonalSituation(
+            tsumo,
+            ippatsu,
+            riichi,
+            doubleRiichi,
+            chankan,
+            rinshankaiho,
+            seatWind
+        )
+
+        val generalSituation = GeneralSituation(
+            firstRound,
+            houtei,
+            prevalentWind,
+            dora.map { it.toTileEnum() }.toList(),
+            uradora.map { it.toTileEnum() }.toList()
+        )
+
+        hand.calculate(personalSituation, generalSituation)
+
+        Intent(requireContext().applicationContext, HandResultActivity::class.java).also { intent ->
+            intent.putExtra("score", hand.getPoints())
+            intent.putExtra("han", hand.getHan())
+            intent.putExtra("fu", hand.getFu())
+
+            val yaku = hand.getYaku().map { it.toString() }.toTypedArray()
+            intent.putExtra("yaku", yaku)
+
+            val yakuman = hand.getYakuman().map { it.toString() }.toTypedArray()
+            intent.putExtra("yakuman", yakuman)
+
+            startActivity(intent)
+        }
     }
 
     private fun setVisibility(tab: TabLayout.Tab?) {

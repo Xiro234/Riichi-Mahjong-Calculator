@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/situationFragment"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/situationFragment">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/ivSeatWind1"
@@ -12,11 +12,11 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/front"
+        android:src="@drawable/ton"
         app:layout_constraintEnd_toStartOf="@+id/ivSeatWind2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivPrevalentWind1"
@@ -24,77 +24,77 @@
         android:layout_height="40dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/front"
+        android:src="@drawable/ton"
         app:layout_constraintEnd_toStartOf="@+id/ivPrevalentWind2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/ivSeatWind1"
-        android:src="@drawable/ton" />
+        app:layout_constraintTop_toBottomOf="@+id/ivSeatWind1" />
 
     <ImageView
         android:id="@+id/ivPrevalentWind2"
         android:layout_width="30dp"
         android:layout_height="40dp"
         android:background="@drawable/front"
+        android:src="@drawable/nan"
         app:layout_constraintEnd_toStartOf="@+id/ivPrevalentWind3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivPrevalentWind1"
-        app:layout_constraintTop_toTopOf="@+id/ivPrevalentWind1"
-        android:src="@drawable/nan" />
+        app:layout_constraintTop_toTopOf="@+id/ivPrevalentWind1" />
 
     <ImageView
         android:id="@+id/ivPrevalentWind3"
         android:layout_width="30dp"
         android:layout_height="40dp"
         android:background="@drawable/front"
+        android:src="@drawable/shaa"
         app:layout_constraintEnd_toStartOf="@+id/ivPrevalentWind4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivPrevalentWind2"
-        app:layout_constraintTop_toTopOf="@+id/ivPrevalentWind2"
-        android:src="@drawable/shaa" />
+        app:layout_constraintTop_toTopOf="@+id/ivPrevalentWind2" />
 
     <ImageView
         android:id="@+id/ivPrevalentWind4"
         android:layout_width="30dp"
         android:layout_height="40dp"
         android:background="@drawable/front"
+        android:src="@drawable/pei"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivPrevalentWind3"
-        app:layout_constraintTop_toTopOf="@+id/ivPrevalentWind3"
-        android:src="@drawable/pei" />
+        app:layout_constraintTop_toTopOf="@+id/ivPrevalentWind3" />
 
     <ImageView
         android:id="@+id/ivSeatWind2"
         android:layout_width="30dp"
         android:layout_height="40dp"
         android:background="@drawable/front"
+        android:src="@drawable/nan"
         app:layout_constraintEnd_toStartOf="@+id/ivSeatWind3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivSeatWind1"
-        app:layout_constraintTop_toTopOf="@+id/ivSeatWind1"
-        android:src="@drawable/nan" />
+        app:layout_constraintTop_toTopOf="@+id/ivSeatWind1" />
 
     <ImageView
         android:id="@+id/ivSeatWind3"
         android:layout_width="30dp"
         android:layout_height="40dp"
         android:background="@drawable/front"
+        android:src="@drawable/shaa"
         app:layout_constraintEnd_toStartOf="@+id/ivSeatWind4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivSeatWind2"
-        app:layout_constraintTop_toTopOf="@+id/ivSeatWind2"
-        android:src="@drawable/shaa" />
+        app:layout_constraintTop_toTopOf="@+id/ivSeatWind2" />
 
     <ImageView
         android:id="@+id/ivSeatWind4"
         android:layout_width="30dp"
         android:layout_height="40dp"
         android:background="@drawable/front"
+        android:src="@drawable/pei"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivSeatWind3"
-        app:layout_constraintTop_toTopOf="@+id/ivSeatWind3"
-        android:src="@drawable/pei" />
+        app:layout_constraintTop_toTopOf="@+id/ivSeatWind3" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/HandGroup"
@@ -241,5 +241,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="ivPrevalentWind1,ivPrevalentWind2,ivPrevalentWind3,ivPrevalentWind4" />
+
+    <Button
+        android:id="@+id/btnCalc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="236dp"
+        android:text="Calculate!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
